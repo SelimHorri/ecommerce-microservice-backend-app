@@ -1,0 +1,14 @@
+
+*.sql linguist-detectable=true
+*.sql linguist-language=sql
+*.yml linguist-detectable=true
+*.yml linguist-language=yml
+*.yaml linguist-detectable=true
+*.yaml linguist-language=yaml
+*.json linguist-detectable=true
+*.json linguist-language=json
+*.xml linguist-detectable=true
+*.xml linguist-language=xml
+
+
+

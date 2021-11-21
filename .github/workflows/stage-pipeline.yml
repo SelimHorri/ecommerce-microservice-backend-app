@@ -2,16 +2,17 @@
 name: Java CI/CD from wrappeer project
 
 on:
-  push:
-    branches: [ develop, stage, master ]
   pull_request:
-    branches: [ develop, stage, master ]
+    branches: [ stage ]
+  push:
+    branches: [ stage ]
 
 jobs:
+  
   build:
-
+    
     runs-on: ubuntu-latest
-
+    
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK 11

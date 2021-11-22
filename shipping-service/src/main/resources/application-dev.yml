@@ -1,6 +1,6 @@
 
 server:
-  port: 8300
+  port: 8600
 
 management:
   endpoints:

@@ -1,0 +1,11 @@
+
+spring:
+  application:
+    name: SERVICE-DISCOVERY
+  profiles:
+    active:
+    - dev
+  jackson:
+    serialization:
+      indent-output: true
+

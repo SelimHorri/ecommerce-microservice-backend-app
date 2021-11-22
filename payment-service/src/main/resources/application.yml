@@ -1,0 +1,25 @@
+
+server:
+  servlet:
+    context-path: /payment-service
+
+spring:
+  application:
+    name: PAYMENT-SERVICE
+  profiles:
+    active:
+    - dev
+  jackson:
+    serialization:
+      indent-output: true
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    hostname: localhost
+
+

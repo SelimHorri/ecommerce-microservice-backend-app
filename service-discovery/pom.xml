@@ -9,9 +9,7 @@
 		<artifactId>ecommerce-microservice-backend</artifactId>
 		<version>0.1.0</version>
 	</parent>
-	<groupId>com.selimhorri</groupId>
 	<artifactId>service-discovery</artifactId>
-	<version>0.1.0</version>
 	<name>service-discovery</name>
 	<description>Spring Boot microservice!</description>
 	<packaging>jar</packaging>

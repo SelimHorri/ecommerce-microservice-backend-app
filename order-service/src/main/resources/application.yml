@@ -1,0 +1,15 @@
+
+server:
+  servlet:
+    context-path: /order-service
+
+spring:
+  application:
+    name: ORDER-SERVICE
+  profiles:
+    active:
+    - dev
+  jackson:
+    serialization:
+      indent-output: true
+

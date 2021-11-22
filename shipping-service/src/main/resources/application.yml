@@ -1,0 +1,15 @@
+
+server:
+  servlet:
+    context-path: /shipping-service
+
+spring:
+  application:
+    name: SHIPPING-SERVICE
+  profiles:
+    active:
+    - dev
+  jackson:
+    serialization:
+      indent-output: true
+

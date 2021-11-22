@@ -1,0 +1,15 @@
+
+server:
+  servlet:
+    context-path: /product-service
+
+spring:
+  application:
+    name: PRODUCT-SERVICE
+  profiles:
+    active:
+    - dev
+  jackson:
+    serialization:
+      indent-output: true
+

@@ -1,0 +1,15 @@
+
+server:
+  servlet:
+    context-path: /payment-service
+
+spring:
+  application:
+    name: PAYMENT-SERVICE
+  profiles:
+    active:
+    - dev
+  jackson:
+    serialization:
+      indent-output: true
+

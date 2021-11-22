@@ -1,6 +1,6 @@
 
 server:
-  port: 8761
+  port: 8080
 
 management:
   endpoints:

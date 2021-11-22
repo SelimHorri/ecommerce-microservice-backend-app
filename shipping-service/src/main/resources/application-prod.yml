@@ -1,0 +1,43 @@
+
+server:
+  port: 8600
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/ecommerce_stage_db
+    username: root
+    password: 
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        use_sql_comments: true
+        format_sql: true
+
+logging:
+  file:
+    name: src/main/resources/script/prod_log.log
+    clean-history-on-start: false
+  level:
+    org:
+      hibernate:
+        SQL: INFO
+      springframework:
+        web: INFO
+        data: INFO
+      boot:
+        autoconfigure:
+          data:
+            rest: INFO
+            jpa: INFO
+            orm: INFO
+

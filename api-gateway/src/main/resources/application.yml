@@ -6,6 +6,8 @@ server:
 spring:
   config:
     import: optional:configserver:http://localhost:9296
+  zipkin:
+    base-url: http://localhost:9411/
   application:
     name: API-GATEWAY
   profiles:

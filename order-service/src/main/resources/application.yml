@@ -4,6 +4,8 @@ server:
     context-path: /order-service
 
 spring:
+  config:
+    import: optional:configserver:http://localhost:9296
   application:
     name: ORDER-SERVICE
   profiles:

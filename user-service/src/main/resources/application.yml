@@ -4,6 +4,8 @@ server:
     context-path: /user-service
 
 spring:
+  config:
+    import: optional:configserver:http://localhost:9296
   application:
     name: USER-SERVICE
   profiles:

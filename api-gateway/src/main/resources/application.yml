@@ -1,9 +1,11 @@
 
 server:
   servlet:
-    context-path: /app
+    context-path: /
 
 spring:
+  config:
+    import: optional:configserver:http://localhost:9296
   application:
     name: API-GATEWAY
   profiles:

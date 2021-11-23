@@ -1,0 +1,14 @@
+
+server:
+  port: 9296
+
+spring:
+  application:
+    name: CLOUD-CONFIG
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://SelimHorri@dev.azure.com/SelimHorri/GitHub%20Opensource%20Projects/_git/cloud-config-server
+          clone-on-start: true
+

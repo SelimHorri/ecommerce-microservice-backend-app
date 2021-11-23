@@ -46,6 +46,7 @@
 	
 	<modules>
 		<module>service-discovery</module>
+		<module>cloud-config</module>
 		<module>api-gateway</module>
 		<module>user-service</module>
 		<module>product-service</module>

@@ -39,6 +39,10 @@ spring:
         uri: lb://USER-SERVICE
         predicates:
         - Path=/user-service/**
+      - id: FAVOURITE-SERVICE
+        uri: lb://FAVOURITE-SERVICE
+        predicates:
+        - Path=/favourite-service/**
 
  
  

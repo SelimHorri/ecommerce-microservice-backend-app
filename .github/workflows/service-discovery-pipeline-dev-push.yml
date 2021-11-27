@@ -19,8 +19,8 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Build & Push Docker image for service-discovery
-      run: cd service-discovery/
       uses: mr-smithers-excellent/docker-build-push@v5
+      run: cd service-discovery/
       with:
         image: ${{ secrets.DOCKER_USERNAME }}/service-discovery
         tags: dev

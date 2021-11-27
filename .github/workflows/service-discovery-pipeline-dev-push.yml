@@ -33,7 +33,7 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/service-discovery:dev
+        tags: service-discovery:dev
         #context: ./service-discovery
         file: ./service-discovery/Dockerfile
 

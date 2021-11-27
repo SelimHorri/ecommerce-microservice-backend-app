@@ -25,8 +25,8 @@ jobs:
     - name: Build & Push Docker image for service-discovery
       uses: mr-smithers-excellent/docker-build-push@v5
       with:
-        image: ${{ secrets.DOCKER_IMAGE }}
-        tags: latest
+        image: ${{ secrets.DOCKER_USERNAME }}/service-discovery
+        tags: dev
         directory: service-discovery/Dockerfile
         registry: docker.io
         username: ${{ secrets.DOCKER_USERNAME }}

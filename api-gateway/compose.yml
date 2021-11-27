@@ -1,0 +1,12 @@
+
+version: '3'
+services:
+  api-gateway-container:
+    image: selimhorri/api-gateway
+    ports:
+      - 8080:8080
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+
+
+

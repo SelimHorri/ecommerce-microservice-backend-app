@@ -1,18 +1,13 @@
 
-name: Java CI/CD from wrappeer project
+name: Develop, on PR Java CI/CD of service-discovery, ecommerce-microservice-backend app
 
 on:
   pull_request:
     branches: [ develop ]
-  push:
-    branches: [ develop ]
 
 jobs:
-  
   build:
-    
     runs-on: ubuntu-latest
-    
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK 11
@@ -22,6 +17,5 @@ jobs:
         distribution: 'adopt'
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-
 
 

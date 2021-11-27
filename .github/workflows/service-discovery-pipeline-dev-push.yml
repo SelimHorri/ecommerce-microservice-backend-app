@@ -23,7 +23,7 @@ jobs:
       with:
         image: ${{ secrets.DOCKER_USERNAME }}/service-discovery
         tags: dev
-        directory: ./service-discovery
+        dockerfile: ./service-discovery
         registry: docker.io
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}

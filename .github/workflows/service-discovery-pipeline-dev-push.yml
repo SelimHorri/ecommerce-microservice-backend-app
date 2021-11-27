@@ -19,7 +19,7 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Access to service-discovery Microservice
-      run: cd service-discovery/
+      #run: cd service-discovery/
     - name: Build & Push Docker image for service-discovery
       uses: mr-smithers-excellent/docker-build-push@v5
       with:

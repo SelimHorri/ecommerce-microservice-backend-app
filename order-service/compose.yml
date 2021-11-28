@@ -1,0 +1,12 @@
+
+version: '3'
+services:
+  api-gateway-container:
+    image: selimhorri/order-service
+    ports:
+      - 8300:8300
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+
+
+

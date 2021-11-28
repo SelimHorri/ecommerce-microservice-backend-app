@@ -1,7 +1,7 @@
 
 version: '3'
 services:
-  api-gateway-container:
+  product-service-container:
     image: selimhorri/product-service
     ports:
       - 8500:8500

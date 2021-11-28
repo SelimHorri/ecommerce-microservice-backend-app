@@ -1,7 +1,7 @@
 
 version: '3'
 services:
-  api-gateway-container:
+  favourite-service-container:
     image: selimhorri/favourite-service
     ports:
       - 8800:8800

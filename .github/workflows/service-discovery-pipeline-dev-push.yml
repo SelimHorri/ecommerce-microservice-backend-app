@@ -27,8 +27,8 @@ jobs:
       #run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
       run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
     - name: Build Docker image for service-discovery Microservice
-      run: docker build -f service-discovery/Dockerfile -t service-discovery:dev .
+      run: docker build -f service-discovery/Dockerfile -t ${{ secrets.DOCKER_USERNAME }}/service-discovery:dev .
     - name: Push service-discovery image
-      run: docker push service-discovery:dev
+      run: docker push ${{ secrets.DOCKER_USERNAME }}/service-discovery:dev
 
 

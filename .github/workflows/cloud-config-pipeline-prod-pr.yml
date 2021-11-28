@@ -3,7 +3,7 @@ name: Stage, on PR Java CI/CD of cloud-gateway, ecommerce-microservice-backend a
 
 on:
   pull_request:
-    branches: [ stage ]
+    branches: [ master ]
 
 jobs:
   build:

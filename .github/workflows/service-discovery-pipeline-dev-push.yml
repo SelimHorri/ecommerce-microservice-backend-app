@@ -1,5 +1,5 @@
 
-name: Develop, on PUSH Java CI/CD of service-discovery, ecommerce-microservice-backend app
+name: Develop, on PUSH Java CI/CD of service-discovery-ecommerce-boot, ecommerce-microservice-backend app
 
 on:
   push:
@@ -24,11 +24,10 @@ jobs:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
     - name: Docker Login
-      #run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
       run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-    - name: Build Docker image for service-discovery Microservice
-      run: docker build -f service-discovery/Dockerfile -t ${{ secrets.DOCKER_USERNAME }}/service-discovery:dev .
-    - name: Push service-discovery image
-      run: docker push ${{ secrets.DOCKER_USERNAME }}/service-discovery:dev
+    - name: Build Docker image for service-discovery-ecommerce-boot Microservice
+      run: docker build -f service-discovery-ecommerce-boot/Dockerfile -t ${{ secrets.DOCKER_USERNAME }}/service-discovery-ecommerce-boot:dev .
+    - name: Push service-discovery-ecommerce-boot image
+      run: docker push ${{ secrets.DOCKER_USERNAME }}/service-discovery-ecommerce-boot:dev
 
 

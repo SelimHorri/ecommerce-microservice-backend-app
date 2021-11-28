@@ -4,7 +4,7 @@ server:
 
 spring:
   zipkin:
-    base-url: http://localhost:9411/
+    base-url: ${SPRING_ZIPKIN_BASE_URL:http://localhost:9411/}
   application:
     name: CLOUD-CONFIG
   cloud:
@@ -29,6 +29,10 @@ resilience4j:
         sliding-window-type: COUNT_BASED
 
 management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
   health:
     circuitbreakers:
       enabled: true

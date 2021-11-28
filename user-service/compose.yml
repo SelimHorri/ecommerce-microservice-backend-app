@@ -1,0 +1,12 @@
+
+version: '3'
+services:
+  api-gateway-container:
+    image: selimhorri/user-service
+    ports:
+      - 8700:8700
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+
+
+

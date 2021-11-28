@@ -1,7 +1,7 @@
 
 version: '3'
 services:
-  api-gateway-container:
+  user-service-container:
     image: selimhorri/user-service
     ports:
       - 8700:8700

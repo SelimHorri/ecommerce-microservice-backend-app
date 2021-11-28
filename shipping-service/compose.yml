@@ -1,7 +1,7 @@
 
 version: '3'
 services:
-  api-gateway-container:
+  shipping-service-container:
     image: selimhorri/shipping-service
     ports:
       - 8600:8600

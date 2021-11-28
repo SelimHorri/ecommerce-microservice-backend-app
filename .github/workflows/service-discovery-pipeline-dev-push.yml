@@ -29,6 +29,6 @@ jobs:
     - name: Build Docker image for service-discovery Microservice
       run: docker build -f service-discovery/Dockerfile -t service-discovery:dev .
     - name: Push service-discovery image
-      run: docker push selimhorri/service-discovery:dev
+      run: docker push service-discovery:dev
 
 

@@ -1,0 +1,33 @@
+
+name: Stage, on PUSH Java CI/CD of user-service-ecommerce-boot, ecommerce-microservice-backend app
+
+on:
+  push:
+    branches: [ develop ]
+
+jobs:
+  build_push:
+    #needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up JDK 11
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'
+        distribution: 'adopt'
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml
+    - name: Setup env variables for Docker
+      run: echo Setup env variables for Docker
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+    - name: Docker Login
+      run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+    - name: Build Docker image for user-service-ecommerce-boot Microservice
+      run: docker build -f user-service/Dockerfile -t ${{ secrets.DOCKER_USERNAME }}/user-service-ecommerce-boot:stage .
+    - name: Push user-service-ecommerce-boot image
+      run: docker push ${{ secrets.DOCKER_USERNAME }}/user-service-ecommerce-boot:stage
+
+

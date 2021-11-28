@@ -1,0 +1,12 @@
+
+version: '3'
+services:
+  api-gateway-container:
+    image: selimhorri/payment-service
+    ports:
+      - 8400:8400
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+
+
+

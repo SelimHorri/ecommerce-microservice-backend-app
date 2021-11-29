@@ -28,7 +28,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Builder
-public class VerificationToken implements Serializable {
+public final class VerificationToken implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	

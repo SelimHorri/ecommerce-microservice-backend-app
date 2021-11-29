@@ -13,8 +13,8 @@ services:
       - SPRING_PROFILES_ACTIVE=dev
       - SPRING_ZIPKIN_BASE_URL=http://zipkin-container:9411/
       - SPRING_CONFIG_IMPORT=optional:configserver:http://cloud-config-container:9296
-      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://user-service-container:8761/eureka
-      - EUREKA_INSTANCE=user-service-container
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://service-discovery-container:8761/eureka
+      - EUREKA_INSTANCE=service-discovery-container
   cloud-config-container:
     image: selimhorri/cloud-config-ecommerce-boot:dev
     ports:
@@ -23,8 +23,10 @@ services:
       - SPRING_PROFILES_ACTIVE=dev
       - SPRING_ZIPKIN_BASE_URL=http://zipkin-container:9411/
       - SPRING_CONFIG_IMPORT=optional:configserver:http://cloud-config-container:9296
-      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://user-service-container:8761/eureka
-      - EUREKA_INSTANCE=user-service-container
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://service-discovery-container:8761/eureka
+      - EUREKA_INSTANCE=service-discovery-container
+    depends_on:
+      - service-discovery-container
   api-gateway-container:
     image: selimhorri/api-gateway-ecommerce-boot:dev
     ports:
@@ -33,8 +35,11 @@ services:
       - SPRING_PROFILES_ACTIVE=dev
       - SPRING_ZIPKIN_BASE_URL=http://zipkin-container:9411/
       - SPRING_CONFIG_IMPORT=optional:configserver:http://cloud-config-container:9296
-      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://user-service-container:8761/eureka
-      - EUREKA_INSTANCE=user-service-container
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://service-discovery-container:8761/eureka
+      - EUREKA_INSTANCE=service-discovery-container
+    depends_on:
+      - service-discovery-container
+      - cloud-config-container
   order-service-container:
     image: selimhorri/order-service-ecommerce-boot:dev
     ports:
@@ -43,8 +48,12 @@ services:
       - SPRING_PROFILES_ACTIVE=dev
       - SPRING_ZIPKIN_BASE_URL=http://zipkin-container:9411/
       - SPRING_CONFIG_IMPORT=optional:configserver:http://cloud-config-container:9296
-      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://user-service-container:8761/eureka
-      - EUREKA_INSTANCE=user-service-container
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://service-discovery-container:8761/eureka
+      - EUREKA_INSTANCE=service-discovery-container
+    depends_on:
+      - service-discovery-container
+      - cloud-config-container
+      - api-gateway-container
   payment-service-container:
     image: selimhorri/payment-service-ecommerce-boot:dev
     ports:
@@ -53,8 +62,12 @@ services:
       - SPRING_PROFILES_ACTIVE=dev
       - SPRING_ZIPKIN_BASE_URL=http://zipkin-container:9411/
       - SPRING_CONFIG_IMPORT=optional:configserver:http://cloud-config-container:9296
-      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://user-service-container:8761/eureka
-      - EUREKA_INSTANCE=user-service-container
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://service-discovery-container:8761/eureka
+      - EUREKA_INSTANCE=service-discovery-container
+    depends_on:
+      - service-discovery-container
+      - cloud-config-container
+      - api-gateway-container
   product-service-container:
     image: selimhorri/product-service-ecommerce-boot:dev
     ports:
@@ -63,8 +76,12 @@ services:
       - SPRING_PROFILES_ACTIVE=dev
       - SPRING_ZIPKIN_BASE_URL=http://zipkin-container:9411/
       - SPRING_CONFIG_IMPORT=optional:configserver:http://cloud-config-container:9296
-      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://user-service-container:8761/eureka
-      - EUREKA_INSTANCE=user-service-container
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://service-discovery-container:8761/eureka
+      - EUREKA_INSTANCE=service-discovery-container
+    depends_on:
+      - service-discovery-container
+      - cloud-config-container
+      - api-gateway-container
   shipping-service-container:
     image: selimhorri/shipping-service-ecommerce-boot:dev
     ports:
@@ -73,8 +90,12 @@ services:
       - SPRING_PROFILES_ACTIVE=dev
       - SPRING_ZIPKIN_BASE_URL=http://zipkin-container:9411/
       - SPRING_CONFIG_IMPORT=optional:configserver:http://cloud-config-container:9296
-      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://user-service-container:8761/eureka
-      - EUREKA_INSTANCE=user-service-container
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://service-discovery-container:8761/eureka
+      - EUREKA_INSTANCE=service-discovery-container
+    depends_on:
+      - service-discovery-container
+      - cloud-config-container
+      - api-gateway-container
   user-service-container:
     image: selimhorri/user-service-ecommerce-boot:dev
     ports:
@@ -83,8 +104,12 @@ services:
       - SPRING_PROFILES_ACTIVE=dev
       - SPRING_ZIPKIN_BASE_URL=http://zipkin-container:9411/
       - SPRING_CONFIG_IMPORT=optional:configserver:http://cloud-config-container:9296
-      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://user-service-container:8761/eureka
-      - EUREKA_INSTANCE=user-service-container
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://service-discovery-container:8761/eureka
+      - EUREKA_INSTANCE=service-discovery-container
+    depends_on:
+      - service-discovery-container
+      - cloud-config-container
+      - api-gateway-container
   favourite-service-container:
     image: selimhorri/favourite-service-ecommerce-boot:dev
     ports:
@@ -93,8 +118,12 @@ services:
       - SPRING_PROFILES_ACTIVE=dev
       - SPRING_ZIPKIN_BASE_URL=http://zipkin-container:9411/
       - SPRING_CONFIG_IMPORT=optional:configserver:http://cloud-config-container:9296
-      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://user-service-container:8761/eureka
-      - EUREKA_INSTANCE=user-service-container
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://service-discovery-container:8761/eureka
+      - EUREKA_INSTANCE=service-discovery-container
+    depends_on:
+      - service-discovery-container
+      - cloud-config-container
+      - api-gateway-container
 
 
 

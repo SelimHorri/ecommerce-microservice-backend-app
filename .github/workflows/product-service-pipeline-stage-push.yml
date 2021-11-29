@@ -26,8 +26,8 @@ jobs:
     - name: Docker Login
       run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
     - name: Build Docker image for product-service-ecommerce-boot Microservice
-      run: docker build -f product-service/Dockerfile -t ${{ secrets.DOCKER_USERNAME }}/product-service-ecommerce-boot:stage .
+      run: docker build -f product-service/Dockerfile -t ${{ secrets.DOCKER_USERNAME }}/product-service-ecommerce-boot:${{ secrets.PROJECT_VERSION }}stage .
     - name: Push product-service-ecommerce-boot image
-      run: docker push ${{ secrets.DOCKER_USERNAME }}/product-service-ecommerce-boot:stage
+      run: docker push ${{ secrets.DOCKER_USERNAME }}/product-service-ecommerce-boot:${{ secrets.PROJECT_VERSION }}stage
 
 

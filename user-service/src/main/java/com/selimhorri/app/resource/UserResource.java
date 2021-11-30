@@ -74,10 +74,18 @@ public class UserResource {
 	}
 	
 	@DeleteMapping("/{userId}")
-	public ResponseEntity<Boolean> deleteById(@PathVariable("userId") @NotBlank(message = "*Input must not blank!**") final String userId) {
+	public ResponseEntity<Boolean> deleteById(@PathVariable("userId") @NotBlank(message = "*Input must not blank!**") @Valid final String userId) {
 		log.info("*** Boolean, resource; delete user by id *");
 		this.userService.deleteById(Integer.parseInt(userId));
 		return ResponseEntity.ok(true);
+	}
+	
+	@GetMapping("/username/{username}")
+	public ResponseEntity<UserDto> findByUsername(
+			@PathVariable("userId") 
+			@NotBlank(message = "*Input must not blank!**") 
+			@Valid final String username) {
+		return ResponseEntity.ok(this.userService.findByUsername(username));
 	}
 	
 	

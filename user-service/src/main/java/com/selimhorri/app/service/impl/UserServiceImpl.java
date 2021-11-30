@@ -67,6 +67,13 @@ public class UserServiceImpl implements UserService {
 		this.userRepository.deleteById(userId);
 	}
 	
+	@Override
+	public UserDto findByUsername(final String username) {
+		log.info("*** UserDto, service; fetch user with username *");
+		return UserMappingHelper.map(this.userRepository.findByCredentialUsername(username)
+				.orElseThrow(NoSuchElementException::new));
+	}
+	
 	
 	
 }

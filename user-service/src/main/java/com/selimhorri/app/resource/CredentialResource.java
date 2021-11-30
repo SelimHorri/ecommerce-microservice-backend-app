@@ -76,7 +76,8 @@ public class CredentialResource {
 	@DeleteMapping("/{credentialId}")
 	public ResponseEntity<Boolean> deleteById(
 			@PathVariable("credentialId") 
-			@NotBlank(message = "*Input must not blank!**") final String credentialId) {
+			@NotBlank(message = "*Input must not blank!**") 
+			@Valid final String credentialId) {
 		log.info("*** Boolean, resource; delete credential by id *");
 		this.credentialService.deleteById(Integer.parseInt(credentialId));
 		return ResponseEntity.ok(true);

@@ -12,6 +12,7 @@ public interface UserService {
 	UserDto update(final UserDto userDto);
 	UserDto update(final Integer userId, final UserDto userDto);
 	void deleteById(final Integer userId);
+	UserDto findByUsername(final String username);
 	
 }
 

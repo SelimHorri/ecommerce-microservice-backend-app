@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService {
 	
 	@Override
 	public UserDto findById(final Integer userId) {
-		log.info("*** UserDto, service; fetch user by ids *");
+		log.info("*** UserDto, service; fetch user by id *");
 		return this.userRepository.findById(userId)
 				.map(UserMappingHelper::map)
 				.orElseThrow(NoSuchElementException::new);

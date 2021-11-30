@@ -2,6 +2,7 @@ package com.selimhorri.app.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -22,7 +23,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "users")
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode(callSuper = true, exclude = {"credential"})
 @Data
 @Builder
 public final class User extends AbstractMappedEntity implements Serializable {
@@ -48,7 +49,7 @@ public final class User extends AbstractMappedEntity implements Serializable {
 	
 	private String phone;
 	
-	@OneToOne(fetch = FetchType.EAGER, mappedBy = "user")
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
 	private Credential credential;
 	
 }

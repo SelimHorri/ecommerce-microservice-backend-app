@@ -29,7 +29,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "verification_tokens")
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode(callSuper = true, exclude = {"credential"})
 @Data
 @Builder
 public final class VerificationToken extends AbstractMappedEntity implements Serializable {
@@ -54,7 +54,6 @@ public final class VerificationToken extends AbstractMappedEntity implements Ser
 	private Credential credential;
 	
 }
-
 
 
 

@@ -3,6 +3,7 @@ package com.selimhorri.app.domain;
 import java.io.Serializable;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -28,7 +29,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "credentials")
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode(callSuper = true, exclude = {"user", "verificationTokens"})
 @Data
 @Builder
 public final class Credential extends AbstractMappedEntity implements Serializable {
@@ -67,11 +68,10 @@ public final class Credential extends AbstractMappedEntity implements Serializab
 	private User user;
 	
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "credential")
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "credential")
 	private Set<VerificationToken> verificationTokens;
 	
 }
-
 
 
 

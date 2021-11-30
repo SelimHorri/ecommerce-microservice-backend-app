@@ -83,6 +83,15 @@ public class CredentialResource {
 		return ResponseEntity.ok(true);
 	}
 	
+	@GetMapping("/username/{username}")
+	public ResponseEntity<CredentialDto> findByUsername(
+			@PathVariable("username") 
+			@NotBlank(message = "*Input must not blank!**") 
+			@Valid final String username) {
+		log.info("*** CredentialDto, resource; update credential with credentialId *");
+		return ResponseEntity.ok(this.credentialService.findByUsername(username));
+	}
+	
 	
 	
 }

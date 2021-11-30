@@ -82,7 +82,7 @@ public class UserResource {
 	
 	@GetMapping("/username/{username}")
 	public ResponseEntity<UserDto> findByUsername(
-			@PathVariable("userId") 
+			@PathVariable("username") 
 			@NotBlank(message = "*Input must not blank!**") 
 			@Valid final String username) {
 		return ResponseEntity.ok(this.userService.findByUsername(username));

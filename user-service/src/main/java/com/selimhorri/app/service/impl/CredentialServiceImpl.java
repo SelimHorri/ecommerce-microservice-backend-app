@@ -67,6 +67,12 @@ public class CredentialServiceImpl implements CredentialService {
 		this.credentialRepository.deleteById(credentialId);
 	}
 	
+	@Override
+	public CredentialDto findByUsername(final String username) {
+		return CredentialMappingHelper.map(this.credentialRepository.findByUsername(username)
+				.orElseThrow(NoSuchElementException::new));
+	}
+	
 	
 	
 }

@@ -1,7 +1,6 @@
 package com.selimhorri.app.domain;
 
 import java.io.Serializable;
-import java.time.Instant;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,27 +12,26 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "users")
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(callSuper = true)
 @Data
 @Builder
-public final class User implements Serializable {
+public final class User extends AbstractMappedEntity implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "user_id", unique = true, nullable = false)
+	@Column(name = "user_id", unique = true, nullable = false, updatable = false)
 	private Integer userId;
 	
 	@Column(name = "first_name")
@@ -52,14 +50,6 @@ public final class User implements Serializable {
 	
 	@OneToOne(fetch = FetchType.EAGER, mappedBy = "user")
 	private Credential credential;
-	
-	@CreatedDate
-	@Column(name = "created_at")
-	private Instant createdAt;
-	
-	@LastModifiedDate
-	@Column(name = "updated_at")
-	private Instant updatedAt;
 	
 }
 

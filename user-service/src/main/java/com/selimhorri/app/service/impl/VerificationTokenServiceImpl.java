@@ -1,7 +1,6 @@
 package com.selimhorri.app.service.impl;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
@@ -9,6 +8,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.selimhorri.app.dto.VerificationTokenDto;
+import com.selimhorri.app.exception.wrapper.VerificationTokenNotFoundException;
 import com.selimhorri.app.helper.VerificationTokenMappingHelper;
 import com.selimhorri.app.repository.VerificationTokenRepository;
 import com.selimhorri.app.service.VerificationTokenService;
@@ -39,19 +39,22 @@ public class VerificationTokenServiceImpl implements VerificationTokenService {
 		log.info("*** VerificationTokenDto, service; fetch verificationToken by ids *");
 		return this.verificationTokenRepository.findById(verificationTokenId)
 				.map(VerificationTokenMappingHelper::map)
-				.orElseThrow(NoSuchElementException::new);
+				.orElseThrow(() -> new VerificationTokenNotFoundException(String
+						.format("#### VerificationToken with id: %d not found! ####", verificationTokenId)));
 	}
 	
 	@Override
 	public VerificationTokenDto save(final VerificationTokenDto verificationTokenDto) {
 		log.info("*** VerificationTokenDto, service; save verificationToken *");
-		return VerificationTokenMappingHelper.map(this.verificationTokenRepository.save(VerificationTokenMappingHelper.map(verificationTokenDto)));
+		return VerificationTokenMappingHelper.map(this.verificationTokenRepository
+				.save(VerificationTokenMappingHelper.map(verificationTokenDto)));
 	}
 	
 	@Override
 	public VerificationTokenDto update(final VerificationTokenDto verificationTokenDto) {
 		log.info("*** VerificationTokenDto, service; update verificationToken *");
-		return VerificationTokenMappingHelper.map(this.verificationTokenRepository.save(VerificationTokenMappingHelper.map(verificationTokenDto)));
+		return VerificationTokenMappingHelper.map(this.verificationTokenRepository
+				.save(VerificationTokenMappingHelper.map(verificationTokenDto)));
 	}
 	
 	@Override

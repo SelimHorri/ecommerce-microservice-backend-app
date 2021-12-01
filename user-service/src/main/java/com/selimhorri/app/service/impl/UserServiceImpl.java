@@ -1,7 +1,6 @@
 package com.selimhorri.app.service.impl;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
@@ -9,6 +8,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.selimhorri.app.dto.UserDto;
+import com.selimhorri.app.exception.wrapper.UserNotFoundException;
 import com.selimhorri.app.helper.UserMappingHelper;
 import com.selimhorri.app.repository.UserRepository;
 import com.selimhorri.app.service.UserService;
@@ -39,7 +39,7 @@ public class UserServiceImpl implements UserService {
 		log.info("*** UserDto, service; fetch user by id *");
 		return this.userRepository.findById(userId)
 				.map(UserMappingHelper::map)
-				.orElseThrow(NoSuchElementException::new);
+				.orElseThrow(() -> new UserNotFoundException(String.format("#### User with id: %d not found! ####", userId)));
 	}
 	
 	@Override
@@ -71,7 +71,7 @@ public class UserServiceImpl implements UserService {
 	public UserDto findByUsername(final String username) {
 		log.info("*** UserDto, service; fetch user with username *");
 		return UserMappingHelper.map(this.userRepository.findByCredentialUsername(username)
-				.orElseThrow(NoSuchElementException::new));
+				.orElseThrow(() -> new UserNotFoundException(String.format("#### User with username: %s not found! ####", username))));
 	}
 	
 	

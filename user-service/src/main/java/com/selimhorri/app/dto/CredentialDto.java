@@ -1,5 +1,6 @@
 package com.selimhorri.app.dto;
 
+import java.io.Serializable;
 import java.util.Set;
 
 import com.selimhorri.app.domain.Role;
@@ -14,8 +15,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Builder
-public class CredentialDto {
+public class CredentialDto implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
 	private Integer credentialId;
 	private String username;
 	private String password;

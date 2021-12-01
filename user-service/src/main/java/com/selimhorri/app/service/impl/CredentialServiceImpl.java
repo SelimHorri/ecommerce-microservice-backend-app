@@ -1,7 +1,6 @@
 package com.selimhorri.app.service.impl;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
@@ -9,6 +8,8 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.selimhorri.app.dto.CredentialDto;
+import com.selimhorri.app.exception.wrapper.CredentialNotFoundException;
+import com.selimhorri.app.exception.wrapper.UserNotFoundException;
 import com.selimhorri.app.helper.CredentialMappingHelper;
 import com.selimhorri.app.repository.CredentialRepository;
 import com.selimhorri.app.service.CredentialService;
@@ -39,7 +40,7 @@ public class CredentialServiceImpl implements CredentialService {
 		log.info("*** CredentialDto, service; fetch credential by ids *");
 		return this.credentialRepository.findById(credentialId)
 				.map(CredentialMappingHelper::map)
-				.orElseThrow(NoSuchElementException::new);
+				.orElseThrow(() -> new CredentialNotFoundException(String.format("#### Credential with id: %d not found! ####", credentialId)));
 	}
 	
 	@Override
@@ -70,7 +71,7 @@ public class CredentialServiceImpl implements CredentialService {
 	@Override
 	public CredentialDto findByUsername(final String username) {
 		return CredentialMappingHelper.map(this.credentialRepository.findByUsername(username)
-				.orElseThrow(NoSuchElementException::new));
+				.orElseThrow(() -> new UserNotFoundException(String.format("#### Credential with username: %s not found! ####", username))));
 	}
 	
 	

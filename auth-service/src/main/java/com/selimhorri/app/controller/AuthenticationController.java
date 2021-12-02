@@ -4,6 +4,8 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,6 +33,12 @@ public class AuthenticationController {
 			@Valid final AuthenticationRequest authenticationRequest) {
 		log.info("**Authentication controller, proceed with the request*\n");
 		return ResponseEntity.ok(this.authenticationService.authenticate(authenticationRequest));
+	}
+	
+	@GetMapping("/jwt/{jwt}")
+	public ResponseEntity<Boolean> authenticate(@PathVariable("jwt") final String jwt) {
+		log.info("**Authentication controller, proceed with the request*\n");
+		return ResponseEntity.ok(this.authenticationService.authenticate(jwt));
 	}
 	
 	

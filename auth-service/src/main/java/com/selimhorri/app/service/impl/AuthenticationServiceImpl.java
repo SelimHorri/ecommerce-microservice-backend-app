@@ -41,6 +41,11 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 				.loadUserByUsername(authenticationRequest.getUsername())));
 	}
 	
+	@Override
+	public Boolean authenticate(final String jwt) {
+		return null;
+	}
+	
 	
 	
 }

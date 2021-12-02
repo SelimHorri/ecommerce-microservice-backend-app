@@ -30,7 +30,7 @@ public class AuthenticationController {
 			@NotNull(message = "") 
 			@Valid final AuthenticationRequest authenticationRequest) {
 		log.info("**Authentication controller, proceed with the request*\n");
-		return null;
+		return ResponseEntity.ok(this.authenticationService.authenticate(authenticationRequest));
 	}
 	
 	

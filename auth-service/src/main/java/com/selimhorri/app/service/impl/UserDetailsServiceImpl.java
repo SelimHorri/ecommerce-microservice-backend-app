@@ -4,6 +4,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import com.selimhorri.app.model.Credential;
+import com.selimhorri.app.model.UserDetailsImpl;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -13,9 +17,12 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 public class UserDetailsServiceImpl implements UserDetailsService {
 	
+	private final RestTemplate restTemplate;
+	
 	@Override
 	public UserDetails loadUserByUsername(final String username) throws UsernameNotFoundException {
-		return null;
+		log.info("**UserDetails, load user by username*\n");
+		return new UserDetailsImpl(this.restTemplate.getForObject("", Credential.class));
 	}
 	
 	

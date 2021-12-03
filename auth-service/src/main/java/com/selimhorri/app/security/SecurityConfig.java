@@ -14,6 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.selimhorri.app.config.filter.JwtRequestFilter;
+import com.selimhorri.app.model.Role;
 
 import lombok.RequiredArgsConstructor;
 
@@ -38,6 +39,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.csrf().disable()
 			.authorizeRequests()
 				.antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+				.antMatchers("/api/users/**").hasRole(Role.ROLE_USER.getRole())
 				.antMatchers("/api/authenticate").permitAll()
 			.anyRequest().authenticated()
 			.and()

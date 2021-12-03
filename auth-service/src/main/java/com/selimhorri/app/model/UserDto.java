@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Builder
-public class User {
+public class UserDto {
 	
 	private Integer userId;
 	private String firstName;
@@ -22,7 +22,7 @@ public class User {
 	private String phone;
 	
 	@JsonInclude(value = Include.NON_NULL)
-	private Credential credential;
+	private CredentialDto credentialDto;
 	
 }
 

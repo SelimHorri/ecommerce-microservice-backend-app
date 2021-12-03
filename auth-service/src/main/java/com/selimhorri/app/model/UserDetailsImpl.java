@@ -13,11 +13,11 @@ import lombok.RequiredArgsConstructor;
 public class UserDetailsImpl implements UserDetails {
 	
 	private static final long serialVersionUID = 1L;
-	private final Credential credential;
+	private final CredentialDto credential;
 	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return List.of(new SimpleGrantedAuthority(this.credential.getRole().getRole()));
+		return List.of(new SimpleGrantedAuthority(this.credential.getRole().name()));
 	}
 	
 	@Override

@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Builder
-public class Credential {
+public class CredentialDto {
 	
 	private Integer credentialId;
 	private String username;
@@ -26,10 +26,10 @@ public class Credential {
 	private Boolean isCredentialsNonExpired;
 	
 	@JsonInclude(value = Include.NON_NULL)
-	private User user;
+	private UserDto user;
 	
 	@JsonInclude(value = Include.NON_NULL)
-	private Set<VerificationToken> verificationTokens;
+	private Set<VerificationTokenDto> verificationTokenDtos;
 	
 }
 

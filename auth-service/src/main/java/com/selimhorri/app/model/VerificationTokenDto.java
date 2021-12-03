@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Builder
-public class VerificationToken {
+public class VerificationTokenDto {
 	
 	private Integer verificationTokenId;
 	private String token;
@@ -29,7 +29,7 @@ public class VerificationToken {
 	private LocalDate expireDate;
 	
 	@JsonInclude(value = Include.NON_NULL)
-	private Credential credential;
+	private CredentialDto credentialDto;
 	
 }
 

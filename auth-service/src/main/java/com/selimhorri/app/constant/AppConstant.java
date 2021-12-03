@@ -11,6 +11,6 @@ public abstract class AppConstant {
 	public static final String ZONED_DATE_TIME_FORMAT = "dd-MM-yyyy_HH:mm:ss:SS";
 	public static final String INSTANT_FORMAT = "dd-MM-yyyy_HH:mm:ss:SS";
 	
-	public static final String USER_SERVICE_HOST = "http://USER-SERVICE/user-service";
+	public static final String USER_SERVICE_HOST = "http://localhost:8080/user-service";
 	
 }

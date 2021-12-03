@@ -1,4 +1,4 @@
-package com.selimhorri.app.service;
+package com.selimhorri.app.domain.auth.service;
 
 import com.selimhorri.app.model.dto.request.AuthenticationRequest;
 import com.selimhorri.app.model.dto.response.AuthenticationResponse;

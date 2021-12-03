@@ -1,4 +1,4 @@
-package com.selimhorri.app.service.impl;
+package com.selimhorri.app.jwt.service.impl;
 
 import java.util.Date;
 import java.util.function.Function;
@@ -6,7 +6,7 @@ import java.util.function.Function;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
-import com.selimhorri.app.service.JwtService;
+import com.selimhorri.app.jwt.service.JwtService;
 import com.selimhorri.app.util.JwtUtil;
 
 import io.jsonwebtoken.Claims;

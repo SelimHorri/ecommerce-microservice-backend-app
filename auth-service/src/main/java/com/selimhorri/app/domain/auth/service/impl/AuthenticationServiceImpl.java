@@ -1,4 +1,4 @@
-package com.selimhorri.app.service.impl;
+package com.selimhorri.app.domain.auth.service.impl;
 
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -6,11 +6,11 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
+import com.selimhorri.app.domain.auth.service.AuthenticationService;
 import com.selimhorri.app.exception.wrapper.IllegalAuthenticationCredentialsException;
+import com.selimhorri.app.jwt.service.JwtService;
 import com.selimhorri.app.model.dto.request.AuthenticationRequest;
 import com.selimhorri.app.model.dto.response.AuthenticationResponse;
-import com.selimhorri.app.service.AuthenticationService;
-import com.selimhorri.app.service.JwtService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

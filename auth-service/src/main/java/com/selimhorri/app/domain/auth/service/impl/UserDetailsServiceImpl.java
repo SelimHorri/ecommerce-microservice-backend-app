@@ -1,4 +1,4 @@
-package com.selimhorri.app.service.impl;
+package com.selimhorri.app.domain.auth.service.impl;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

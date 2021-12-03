@@ -46,7 +46,7 @@ spring:
       - id: AUTH-SERVICE
         uri: lb://AUTH-SERVICE
         predicates:
-        - Path=/auth-service/**
+        - Path=/app/**
 
 resilience4j:
   circuitbreaker:

@@ -1,7 +1,7 @@
 
 server:
   servlet:
-    context-path: /auth-service
+    context-path: /app
 
 spring:
   zipkin:

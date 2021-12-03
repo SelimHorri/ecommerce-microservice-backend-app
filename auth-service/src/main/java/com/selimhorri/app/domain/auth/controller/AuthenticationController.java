@@ -1,4 +1,4 @@
-package com.selimhorri.app.controller;
+package com.selimhorri.app.domain.auth.controller;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.selimhorri.app.domain.auth.service.AuthenticationService;
 import com.selimhorri.app.model.dto.request.AuthenticationRequest;
 import com.selimhorri.app.model.dto.response.AuthenticationResponse;
-import com.selimhorri.app.service.AuthenticationService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

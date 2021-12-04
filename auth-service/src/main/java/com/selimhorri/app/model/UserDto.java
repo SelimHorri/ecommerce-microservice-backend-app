@@ -1,5 +1,7 @@
 package com.selimhorri.app.model;
 
+import java.util.Set;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
@@ -20,6 +22,9 @@ public class UserDto {
 	private String imageUrl;
 	private String email;
 	private String phone;
+	
+	@JsonInclude(value = Include.NON_NULL)
+	private Set<AddressDto> addressDtos;
 	
 	@JsonInclude(value = Include.NON_NULL)
 	private CredentialDto credentialDto;

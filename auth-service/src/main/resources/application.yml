@@ -1,0 +1,48 @@
+
+server:
+  servlet:
+    context-path: /app
+
+spring:
+  zipkin:
+    base-url: ${SPRING_ZIPKIN_BASE_URL:http://localhost:9411/}
+  config:
+    import: ${SPRING_CONFIG_IMPORT:optional:configserver:http://localhost:9296}
+  application:
+    name: AUTH-SERVICE
+  profiles:
+    active:
+    - dev
+  jackson:
+    serialization:
+      indent-output: true
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      authService:
+        register-health-indicator: true
+        event-consumer-buffer-size: 10
+        automatic-transition-from-open-to-half-open-enabled: true
+        failure-rate-threshold: 50
+        minimum-number-of-calls: 5
+        permitted-number-of-calls-in-half-open-state: 3
+        sliding-window-size: 10
+        wait-duration-in-open-state: 5s
+        sliding-window-type: COUNT_BASED
+
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoint:
+    health:
+      show-details: always
+
+
+
+
+
+
+
+

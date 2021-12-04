@@ -1,7 +1,6 @@
-package com.selimhorri.app.dto;
+package com.selimhorri.app.model;
 
 import java.io.Serializable;
-import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -15,27 +14,20 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Builder
-public class UserDto implements Serializable {
+public class AddressDto implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
-	private Integer userId;
+	private Integer addressId;
 	
-	private String firstName;
+	private String fullAddress;
 	
-	private String lastName;
+	private String postalCode;
 	
-	private String imageUrl;
-	
-	private String email;
-	
-	private String phone;
+	private String city;
 	
 	@JsonInclude(value = Include.NON_NULL)
-	private Set<AddressDto> addressDtos;
-	
-	@JsonInclude(value = Include.NON_NULL)
-	private CredentialDto credentialDto;
+	private UserDto userDto;
 	
 }
 

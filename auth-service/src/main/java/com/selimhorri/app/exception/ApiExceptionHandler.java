@@ -16,6 +16,9 @@ import com.selimhorri.app.exception.wrapper.CredentialNotFoundException;
 import com.selimhorri.app.exception.wrapper.UserNotFoundException;
 import com.selimhorri.app.exception.wrapper.VerificationTokenNotFoundException;
 
+import feign.FeignException;
+import feign.FeignException.FeignClientException;
+import feign.FeignException.FeignServerException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -23,6 +26,25 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RequiredArgsConstructor
 public class ApiExceptionHandler {
+	
+	@ExceptionHandler(value = {
+			FeignClientException.class,
+			FeignServerException.class,
+			FeignException.class
+		})
+		public <T extends FeignException> ResponseEntity<ExceptionMsg> handleProxyException(final T e) {
+			
+			log.info("**ApiExceptionHandler controller, handle feign proxy exception*\n");
+			final var badRequest = HttpStatus.BAD_REQUEST;
+			
+			return new ResponseEntity<>(
+					ExceptionMsg.builder()
+						.msg(e.getMessage())
+						.httpStatus(badRequest)
+						.timestamp(ZonedDateTime
+								.now(ZoneId.systemDefault()))
+						.build(), badRequest);
+		}
 	
 	@ExceptionHandler(value = {
 		MethodArgumentNotValidException.class,

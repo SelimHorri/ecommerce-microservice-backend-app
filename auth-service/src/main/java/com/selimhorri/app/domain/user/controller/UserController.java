@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import com.selimhorri.app.constant.AppConstant;
+import com.selimhorri.app.domain.user.service.UserClientService;
 import com.selimhorri.app.model.UserDto;
 import com.selimhorri.app.model.dto.response.UserServiceCollectionDtoResponse;
 
@@ -28,15 +29,16 @@ public class UserController {
 	
 	private static final String API_URL = AppConstant.USER_SERVICE_HOST + "/api/users";
 	private final RestTemplate restTemplate;
+	private final UserClientService userClientService;
 	
 	@GetMapping
 	public ResponseEntity<UserServiceCollectionDtoResponse> findAll() {
-		return ResponseEntity.ok(this.restTemplate.getForObject(API_URL, UserServiceCollectionDtoResponse.class));
+		return ResponseEntity.ok(this.userClientService.findAll().getBody());
 	}
 	
 	@GetMapping("/{userId}")
 	public ResponseEntity<UserDto> findById(@PathVariable("userId") @NotBlank final String userId) {
-		return ResponseEntity.ok(this.restTemplate.getForObject(API_URL + "/" + userId, UserDto.class));
+		return ResponseEntity.ok(this.userClientService.findById(userId).getBody());
 	}
 	
 	@GetMapping("/username/{username}")

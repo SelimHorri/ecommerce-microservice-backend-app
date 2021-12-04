@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import com.selimhorri.app.exception.payload.ExceptionMsg;
+import com.selimhorri.app.exception.wrapper.AddressNotFoundException;
 import com.selimhorri.app.exception.wrapper.CredentialNotFoundException;
 import com.selimhorri.app.exception.wrapper.UserNotFoundException;
 import com.selimhorri.app.exception.wrapper.VerificationTokenNotFoundException;
@@ -45,7 +46,8 @@ public class ApiExceptionHandler {
 	@ExceptionHandler(value = {
 		UserNotFoundException.class,
 		CredentialNotFoundException.class,
-		VerificationTokenNotFoundException.class
+		VerificationTokenNotFoundException.class,
+		AddressNotFoundException.class
 	})
 	public <T extends RuntimeException> ResponseEntity<ExceptionMsg> handleApiRequestException(final T e) {
 		

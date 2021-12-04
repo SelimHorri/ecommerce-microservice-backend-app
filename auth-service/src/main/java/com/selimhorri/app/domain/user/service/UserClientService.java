@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.selimhorri.app.model.UserDto;
 import com.selimhorri.app.model.dto.response.UserServiceCollectionDtoResponse;
 
-@FeignClient(name = "USER-SERVICE", path = "/user-service/api/users", decode404 = true)
+@FeignClient(name = "USER-SERVICE", contextId = "userClientService", path = "/user-service/api/users", decode404 = true)
 public interface UserClientService {
 	
 	@GetMapping

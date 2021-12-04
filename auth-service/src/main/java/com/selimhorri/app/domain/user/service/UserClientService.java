@@ -46,7 +46,6 @@ public interface UserClientService {
 			@NotNull(message = "*Input must not NULL!**") 
 			@Valid final UserDto userDto);
 	
-	/*
 	@PutMapping("/{userId}")
 	ResponseEntity<UserDto> update(
 			@PathVariable("userId") 
@@ -54,7 +53,6 @@ public interface UserClientService {
 			@RequestBody 
 			@NotNull(message = "*Input must not NULL!**") 
 			@Valid final UserDto userDto);
-	*/
 	
 	@DeleteMapping("/{userId}")
 	ResponseEntity<Boolean> deleteById(@PathVariable("userId") @NotBlank(message = "*Input must not blank!**") @Valid final String userId);

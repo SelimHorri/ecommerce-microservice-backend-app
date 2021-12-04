@@ -28,23 +28,23 @@ import lombok.extern.slf4j.Slf4j;
 public class ApiExceptionHandler {
 	
 	@ExceptionHandler(value = {
-			FeignClientException.class,
-			FeignServerException.class,
-			FeignException.class
-		})
-		public <T extends FeignException> ResponseEntity<ExceptionMsg> handleProxyException(final T e) {
-			
-			log.info("**ApiExceptionHandler controller, handle feign proxy exception*\n");
-			final var badRequest = HttpStatus.BAD_REQUEST;
-			
-			return new ResponseEntity<>(
-					ExceptionMsg.builder()
-						.msg(e.getMessage())
-						.httpStatus(badRequest)
-						.timestamp(ZonedDateTime
-								.now(ZoneId.systemDefault()))
-						.build(), badRequest);
-		}
+		FeignClientException.class,
+		FeignServerException.class,
+		FeignException.class
+	})
+	public <T extends FeignException> ResponseEntity<ExceptionMsg> handleProxyException(final T e) {
+		
+		log.info("**ApiExceptionHandler controller, handle feign proxy exception*\n");
+		final var badRequest = HttpStatus.BAD_REQUEST;
+		
+		return new ResponseEntity<>(
+				ExceptionMsg.builder()
+					.msg(e.contentUTF8())
+					.httpStatus(badRequest)
+					.timestamp(ZonedDateTime
+							.now(ZoneId.systemDefault()))
+					.build(), badRequest);
+	}
 	
 	@ExceptionHandler(value = {
 		MethodArgumentNotValidException.class,

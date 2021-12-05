@@ -1,4 +1,4 @@
-package com.selimhorri.app.util.impl;
+package com.selimhorri.app.jwt.util.impl;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -8,7 +8,7 @@ import java.util.function.Function;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
-import com.selimhorri.app.util.JwtUtil;
+import com.selimhorri.app.jwt.util.JwtUtil;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

@@ -1,4 +1,4 @@
-package com.selimhorri.app.util;
+package com.selimhorri.app.jwt.util;
 
 import java.util.Date;
 import java.util.function.Function;

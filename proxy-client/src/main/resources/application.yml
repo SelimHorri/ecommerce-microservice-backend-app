@@ -9,7 +9,7 @@ spring:
   config:
     import: ${SPRING_CONFIG_IMPORT:optional:configserver:http://localhost:9296}
   application:
-    name: AUTH-SERVICE
+    name: PROXY-CLIENT
   profiles:
     active:
     - dev

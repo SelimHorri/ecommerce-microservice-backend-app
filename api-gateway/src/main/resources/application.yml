@@ -43,8 +43,8 @@ spring:
         uri: lb://FAVOURITE-SERVICE
         predicates:
         - Path=/favourite-service/**
-      - id: AUTH-SERVICE
-        uri: lb://AUTH-SERVICE
+      - id: PROXY-CLIENT
+        uri: lb://PROXY-CLIENT
         predicates:
         - Path=/app/**
 

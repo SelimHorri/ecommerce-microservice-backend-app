@@ -2,7 +2,7 @@
 version: '3'
 services:
   auth-service-container:
-    image: selimhorri/auth-service
+    image: selimhorri/proxy-client
     ports:
       - 8600:8600
     environment:

@@ -9,8 +9,8 @@ ENV SPRING_CONFIG_IMPORT=optional:configserver:http://cloud-config-container:929
 ENV EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://user-service-container:8761/eureka
 ENV EUREKA_INSTANCE=user-service-container
 COPY . .
-ADD auth-service/target/auth-service-v${PROJECT_VERSION}.jar auth-service.jar
+ADD proxy-client/target/proxy-client-v${PROJECT_VERSION}.jar proxy-client.jar
 EXPOSE 8600
-ENTRYPOINT ["java", "-Dspring.profiles.active=${SPRING_PROFILES_ACTIVE}", "-jar", "auth-service.jar"]
+ENTRYPOINT ["java", "-Dspring.profiles.active=${SPRING_PROFILES_ACTIVE}", "-jar", "proxy-client.jar"]
 
 

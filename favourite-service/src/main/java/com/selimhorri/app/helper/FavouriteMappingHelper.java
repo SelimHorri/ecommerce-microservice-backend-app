@@ -2,6 +2,7 @@ package com.selimhorri.app.helper;
 
 import com.selimhorri.app.domain.Favourite;
 import com.selimhorri.app.dto.FavouriteDto;
+import com.selimhorri.app.dto.ProductDto;
 import com.selimhorri.app.dto.UserDto;
 
 public interface FavouriteMappingHelper {
@@ -15,6 +16,10 @@ public interface FavouriteMappingHelper {
 						UserDto.builder()
 							.userId(favourite.getUserId())
 							.build())
+				.productDto(
+						ProductDto.builder()
+						.productId(favourite.getProductId())
+						.build())
 				.build();
 	}
 	

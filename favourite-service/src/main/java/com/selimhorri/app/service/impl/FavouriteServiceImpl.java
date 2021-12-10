@@ -37,6 +37,7 @@ public class FavouriteServiceImpl implements FavouriteService {
 		
 		final var userApiUrl = AppConstant.DiscoveredDomainsApi.USER_SERVICE_API_URL;
 		final var productApiUrl = AppConstant.DiscoveredDomainsApi.PRODUCT_SERVICE_API_URL;
+		
 		return this.favouriteRepository.findAll()
 				.stream()
 					.map(FavouriteMappingHelper::map)

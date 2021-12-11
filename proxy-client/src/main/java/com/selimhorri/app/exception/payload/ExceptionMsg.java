@@ -9,6 +9,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.ser.ZonedDateTimeSerializer;
 import com.selimhorri.app.constant.AppConstant;
 
 import lombok.AllArgsConstructor;
@@ -24,6 +26,7 @@ public final class ExceptionMsg  implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
+	@JsonSerialize(using = ZonedDateTimeSerializer.class)
 	@JsonFormat(shape = Shape.STRING, pattern = AppConstant.ZONED_DATE_TIME_FORMAT)
 	private final ZonedDateTime timestamp;
 	

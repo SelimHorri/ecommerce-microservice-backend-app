@@ -53,7 +53,7 @@ public class FavouriteResource {
 	@GetMapping("/find")
 	public ResponseEntity<FavouriteDto> findById(
 			@RequestBody 
-			@NotNull(message = "*Input must not be NULL!**") 
+			@NotNull(message = "Input must not be NULL") 
 			@Valid final FavouriteId favouriteId) {
 		log.info("*** FavouriteDto, resource; fetch favourite by id *");
 		return ResponseEntity.ok(this.favouriteService.findById(favouriteId));
@@ -62,7 +62,7 @@ public class FavouriteResource {
 	@PostMapping
 	public ResponseEntity<FavouriteDto> save(
 			@RequestBody 
-			@NotNull(message = "*Input must not be NULL!**") 
+			@NotNull(message = "Input must not be NULL") 
 			@Valid final FavouriteDto favouriteDto) {
 		log.info("*** FavouriteDto, resource; save favourite *");
 		return ResponseEntity.ok(this.favouriteService.save(favouriteDto));
@@ -71,7 +71,7 @@ public class FavouriteResource {
 	@PutMapping
 	public ResponseEntity<FavouriteDto> update(
 			@RequestBody 
-			@NotNull(message = "*Input must not be NULL!**") 
+			@NotNull(message = "Input must not be NULL") 
 			@Valid final FavouriteDto favouriteDto) {
 		log.info("*** FavouriteDto, resource; update favourite *");
 		return ResponseEntity.ok(this.favouriteService.update(favouriteDto));
@@ -91,7 +91,7 @@ public class FavouriteResource {
 	@DeleteMapping("/delete")
 	public ResponseEntity<Boolean> deleteById(
 			@RequestBody 
-			@NotNull(message = "*Input must not be NULL!**") 
+			@NotNull(message = "Input must not be NULL") 
 			@Valid final FavouriteId favouriteId) {
 		log.info("*** Boolean, resource; delete favourite by id *");
 		this.favouriteService.deleteById(favouriteId);

@@ -18,7 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 public class UserDetailsServiceImpl implements UserDetailsService {
 	
-	private static final String API_URL = AppConstant.USER_SERVICE_HOST + "/api/credentials";
+	private static final String API_URL = AppConstant.DiscoveredDomainsApi.USER_SERVICE_HOST + "/api/credentials";
 	private final RestTemplate restTemplate;
 	
 	@Override

@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import com.selimhorri.app.jwt.service.JwtService;
-import com.selimhorri.app.util.JwtUtil;
+import com.selimhorri.app.jwt.util.JwtUtil;
 
 import io.jsonwebtoken.Claims;
 import lombok.RequiredArgsConstructor;

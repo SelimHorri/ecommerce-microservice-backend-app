@@ -20,7 +20,7 @@ spring:
 resilience4j:
   circuitbreaker:
     instances:
-      authService:
+      proxyService:
         register-health-indicator: true
         event-consumer-buffer-size: 10
         automatic-transition-from-open-to-half-open-enabled: true

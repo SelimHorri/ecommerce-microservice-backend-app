@@ -3,6 +3,8 @@ package com.selimhorri.app.dto;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+import javax.validation.constraints.NotNull;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -27,9 +29,14 @@ import lombok.NoArgsConstructor;
 public class FavouriteDto implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
+	
+	@NotNull
 	private Integer userId;
+	
+	@NotNull
 	private Integer productId;
 	
+	@NotNull
 	@JsonSerialize(using = LocalDateTimeSerializer.class)
 	@JsonDeserialize(using = LocalDateTimeDeserializer.class)
 	@JsonFormat(pattern = AppConstant.LOCAL_DATE_TIME_FORMAT, shape = Shape.STRING)

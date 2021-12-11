@@ -31,20 +31,16 @@ public class FavouriteServiceImpl implements FavouriteService {
 	
 	@Override
 	public List<FavouriteDto> findAll() {
-		
 		log.info("*** FavouriteDto List, service; fetch all favourites *");
-		
-		final var userApiUrl = AppConstant.DiscoveredDomainsApi.USER_SERVICE_API_URL;
-		final var productApiUrl = AppConstant.DiscoveredDomainsApi.PRODUCT_SERVICE_API_URL;
-		
 		return this.favouriteRepository.findAll()
 				.stream()
 					.map(FavouriteMappingHelper::map)
 					.map(f -> {
 						f.setUserDto(this.restTemplate
-								.getForObject(userApiUrl + "/" + f.getUserId(), UserDto.class));
+								.getForObject(AppConstant.DiscoveredDomainsApi
+										.USER_SERVICE_API_URL + "/" + f.getUserId(), UserDto.class));
 						//f.setProductDto(this.restTemplate
-						//		.getForObject(productApiUrl + "/" + f.getProductId(), ProductDto.class));
+						//		.getForObject(AppConstant.DiscoveredDomainsApi.PRODUCT_SERVICE_API_URL + "/" + f.getProductId(), ProductDto.class));
 						return f;
 					})
 					.distinct()
@@ -53,23 +49,36 @@ public class FavouriteServiceImpl implements FavouriteService {
 	
 	@Override
 	public FavouriteDto findById(final FavouriteId favouriteId) {
-		
 		log.info("*** FavouriteDto, service; fetch favourite by id *");
-		
-		final var userApiUrl = AppConstant.DiscoveredDomainsApi.USER_SERVICE_API_URL;
-		final var productApiUrl = AppConstant.DiscoveredDomainsApi.PRODUCT_SERVICE_API_URL;
-		
 		return this.favouriteRepository.findById(favouriteId)
 				.map(FavouriteMappingHelper::map)
 				.map(f -> {
 					f.setUserDto(this.restTemplate
-							.getForObject(userApiUrl + "/" + f.getUserId(), UserDto.class));
+							.getForObject(AppConstant.DiscoveredDomainsApi
+									.USER_SERVICE_API_URL + "/" + f.getUserId(), UserDto.class));
 					//f.setProductDto(this.restTemplate
-					//		.getForObject(productApiUrl + "/" + f.getProductId(), ProductDto.class));
+					//		.getForObject(AppConstant.DiscoveredDomainsApi.PRODUCT_SERVICE_API_URL + "/" + f.getProductId(), ProductDto.class));
 					return f;
 				})
 				.orElseThrow(() -> new FavouriteNotFoundException(
 						String.format("Favourite with id: [%s] not found!", favouriteId)));
+	}
+	
+	@Override
+	public FavouriteDto save(final FavouriteDto favouriteDto) {
+		return FavouriteMappingHelper.map(this.favouriteRepository
+				.save(FavouriteMappingHelper.map(favouriteDto)));
+	}
+	
+	@Override
+	public FavouriteDto update(final FavouriteDto favouriteDto) {
+		return FavouriteMappingHelper.map(this.favouriteRepository
+				.save(FavouriteMappingHelper.map(favouriteDto)));
+	}
+	
+	@Override
+	public void deleteById(final FavouriteId favouriteId) {
+		this.favouriteRepository.deleteById(favouriteId);
 	}
 	
 	

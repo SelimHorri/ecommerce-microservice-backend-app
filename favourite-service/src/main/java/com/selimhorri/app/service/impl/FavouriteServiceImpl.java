@@ -11,7 +11,6 @@ import org.springframework.web.client.RestTemplate;
 import com.selimhorri.app.constant.AppConstant;
 import com.selimhorri.app.domain.id.FavouriteId;
 import com.selimhorri.app.dto.FavouriteDto;
-import com.selimhorri.app.dto.ProductDto;
 import com.selimhorri.app.dto.UserDto;
 import com.selimhorri.app.exception.wrapper.FavouriteNotFoundException;
 import com.selimhorri.app.helper.FavouriteMappingHelper;
@@ -44,8 +43,8 @@ public class FavouriteServiceImpl implements FavouriteService {
 					.map(f -> {
 						f.setUserDto(this.restTemplate
 								.getForObject(userApiUrl + "/" + f.getUserId(), UserDto.class));
-						f.setProductDto(this.restTemplate
-								.getForObject(productApiUrl + "/" + f.getProductId(), ProductDto.class));
+						//f.setProductDto(this.restTemplate
+						//		.getForObject(productApiUrl + "/" + f.getProductId(), ProductDto.class));
 						return f;
 					})
 					.distinct()
@@ -54,9 +53,21 @@ public class FavouriteServiceImpl implements FavouriteService {
 	
 	@Override
 	public FavouriteDto findById(final FavouriteId favouriteId) {
+		
 		log.info("*** FavouriteDto, service; fetch favourite by id *");
+		
+		final var userApiUrl = AppConstant.DiscoveredDomainsApi.USER_SERVICE_API_URL;
+		final var productApiUrl = AppConstant.DiscoveredDomainsApi.PRODUCT_SERVICE_API_URL;
+		
 		return this.favouriteRepository.findById(favouriteId)
 				.map(FavouriteMappingHelper::map)
+				.map(f -> {
+					f.setUserDto(this.restTemplate
+							.getForObject(userApiUrl + "/" + f.getUserId(), UserDto.class));
+					//f.setProductDto(this.restTemplate
+					//		.getForObject(productApiUrl + "/" + f.getProductId(), ProductDto.class));
+					return f;
+				})
 				.orElseThrow(() -> new FavouriteNotFoundException(
 						String.format("Favourite with id: [%s] not found!", favouriteId)));
 	}

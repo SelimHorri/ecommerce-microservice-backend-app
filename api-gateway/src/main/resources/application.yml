@@ -18,6 +18,17 @@ spring:
       indent-output: true
   cloud:
     gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            #allowCredentials: true
+            allowedMethods: 
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - PATCH
       routes:
       - id: ORDER-SERVICE
         uri: lb://ORDER-SERVICE

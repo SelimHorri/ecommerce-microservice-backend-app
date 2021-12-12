@@ -46,15 +46,15 @@ public final class Category extends AbstractMappedEntity implements Serializable
 	private String imageUrl;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "parentCategory",  fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "parentCategory", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Set<Category> subCategories;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "parent_category_id")
 	private Category parentCategory;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "category",  fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "category", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Set<Product> products;
 	
 }

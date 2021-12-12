@@ -11,6 +11,7 @@ import org.springframework.web.client.RestTemplate;
 import com.selimhorri.app.constant.AppConstant;
 import com.selimhorri.app.domain.id.FavouriteId;
 import com.selimhorri.app.dto.FavouriteDto;
+import com.selimhorri.app.dto.ProductDto;
 import com.selimhorri.app.dto.UserDto;
 import com.selimhorri.app.exception.wrapper.FavouriteNotFoundException;
 import com.selimhorri.app.helper.FavouriteMappingHelper;
@@ -39,8 +40,9 @@ public class FavouriteServiceImpl implements FavouriteService {
 						f.setUserDto(this.restTemplate
 								.getForObject(AppConstant.DiscoveredDomainsApi
 										.USER_SERVICE_API_URL + "/" + f.getUserId(), UserDto.class));
-						//f.setProductDto(this.restTemplate
-						//		.getForObject(AppConstant.DiscoveredDomainsApi.PRODUCT_SERVICE_API_URL + "/" + f.getProductId(), ProductDto.class));
+						f.setProductDto(this.restTemplate
+								.getForObject(AppConstant.DiscoveredDomainsApi
+										.PRODUCT_SERVICE_API_URL + "/" + f.getProductId(), ProductDto.class));
 						return f;
 					})
 					.distinct()
@@ -56,8 +58,9 @@ public class FavouriteServiceImpl implements FavouriteService {
 					f.setUserDto(this.restTemplate
 							.getForObject(AppConstant.DiscoveredDomainsApi
 									.USER_SERVICE_API_URL + "/" + f.getUserId(), UserDto.class));
-					//f.setProductDto(this.restTemplate
-					//		.getForObject(AppConstant.DiscoveredDomainsApi.PRODUCT_SERVICE_API_URL + "/" + f.getProductId(), ProductDto.class));
+					f.setProductDto(this.restTemplate
+							.getForObject(AppConstant.DiscoveredDomainsApi
+									.PRODUCT_SERVICE_API_URL + "/" + f.getProductId(), ProductDto.class));
 					return f;
 				})
 				.orElseThrow(() -> new FavouriteNotFoundException(

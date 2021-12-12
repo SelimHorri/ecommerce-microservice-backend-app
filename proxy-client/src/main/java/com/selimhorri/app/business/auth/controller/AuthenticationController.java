@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.selimhorri.app.business.auth.model.dto.request.AuthenticationRequest;
-import com.selimhorri.app.business.auth.model.dto.response.AuthenticationResponse;
+import com.selimhorri.app.business.auth.model.request.AuthenticationRequest;
+import com.selimhorri.app.business.auth.model.response.AuthenticationResponse;
 import com.selimhorri.app.business.auth.service.AuthenticationService;
 
 import lombok.RequiredArgsConstructor;

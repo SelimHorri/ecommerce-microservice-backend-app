@@ -12,7 +12,6 @@ import com.selimhorri.app.exception.wrapper.CategoryNotFoundException;
 import com.selimhorri.app.helper.CategoryMappingHelper;
 import com.selimhorri.app.repository.CategoryRepository;
 import com.selimhorri.app.service.CategoryService;
-import com.selimhorri.app.service.ProductService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,7 +23,6 @@ import lombok.extern.slf4j.Slf4j;
 public class CategoryServiceImpl implements CategoryService {
 	
 	private final CategoryRepository categoryRepository;
-	private final ProductService productService;
 	
 	@Override
 	public List<CategoryDto> findAll() {
@@ -67,9 +65,8 @@ public class CategoryServiceImpl implements CategoryService {
 	
 	@Override
 	public void deleteById(final Integer categoryId) {
-		this.productService.deleteByCategoryCategoryId(categoryId);
 		log.info("*** Void, service; delete category by id *");
-		this.categoryRepository.delete(CategoryMappingHelper.map(this.findById(categoryId)));
+		this.categoryRepository.deleteById(categoryId);
 	}
 	
 	

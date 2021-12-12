@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.selimhorri.app.business.favourite.model.FavouriteDto;
 import com.selimhorri.app.business.favourite.model.FavouriteId;
-import com.selimhorri.app.business.favourite.model.dto.response.FavouriteServiceCollectionDtoResponse;
+import com.selimhorri.app.business.favourite.model.response.FavouriteFavouriteServiceCollectionDtoResponse;
 
 @FeignClient(name = "FAVOURITE-SERVICE", contextId = "favouriteClientService", path = "/favourite-service/api/favourites")
 public interface FavouriteClientService {
 	
 	@GetMapping
-	ResponseEntity<FavouriteServiceCollectionDtoResponse> findAll();
+	ResponseEntity<FavouriteFavouriteServiceCollectionDtoResponse> findAll();
 	
 	@GetMapping("/{userId}/{productId}/{likeDate}")
 	public ResponseEntity<FavouriteDto> findById(

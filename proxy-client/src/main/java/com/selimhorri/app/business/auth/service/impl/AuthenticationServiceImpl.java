@@ -6,8 +6,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
-import com.selimhorri.app.business.auth.model.dto.request.AuthenticationRequest;
-import com.selimhorri.app.business.auth.model.dto.response.AuthenticationResponse;
+import com.selimhorri.app.business.auth.model.request.AuthenticationRequest;
+import com.selimhorri.app.business.auth.model.response.AuthenticationResponse;
 import com.selimhorri.app.business.auth.service.AuthenticationService;
 import com.selimhorri.app.exception.wrapper.IllegalAuthenticationCredentialsException;
 import com.selimhorri.app.jwt.service.JwtService;

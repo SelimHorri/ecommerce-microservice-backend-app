@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.selimhorri.app.business.favourite.model.FavouriteDto;
 import com.selimhorri.app.business.favourite.model.FavouriteId;
-import com.selimhorri.app.business.favourite.model.dto.response.FavouriteServiceCollectionDtoResponse;
+import com.selimhorri.app.business.favourite.model.response.FavouriteFavouriteServiceCollectionDtoResponse;
 import com.selimhorri.app.business.favourite.service.FavouriteClientService;
 
 import lombok.RequiredArgsConstructor;
@@ -25,7 +25,7 @@ public class FavouriteController {
 	private final FavouriteClientService favouriteClientService;
 	
 	@GetMapping
-	public ResponseEntity<FavouriteServiceCollectionDtoResponse> findAll() {
+	public ResponseEntity<FavouriteFavouriteServiceCollectionDtoResponse> findAll() {
 		return ResponseEntity.ok(this.favouriteClientService.findAll().getBody());
 	}
 	

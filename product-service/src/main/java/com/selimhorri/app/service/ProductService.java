@@ -12,6 +12,5 @@ public interface ProductService {
 	ProductDto update(final ProductDto productDto);
 	ProductDto update(final Integer productId, final ProductDto productDto);
 	void deleteById(final Integer productId);
-	void deleteByCategoryCategoryId(final Integer categoryId);
 	
 }

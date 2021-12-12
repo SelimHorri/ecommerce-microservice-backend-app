@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.selimhorri.app.business.user.model.AddressDto;
-import com.selimhorri.app.business.user.model.dto.response.AddressServiceCollectionDtoResponse;
+import com.selimhorri.app.business.user.model.response.AddressUserServiceCollectionDtoResponse;
 import com.selimhorri.app.business.user.service.AddressClientService;
 
 import lombok.RequiredArgsConstructor;
@@ -24,7 +24,7 @@ public class AddressController {
 	private final AddressClientService addressClientService;
 	
 	@GetMapping
-	public ResponseEntity<AddressServiceCollectionDtoResponse> findAll() {
+	public ResponseEntity<AddressUserServiceCollectionDtoResponse> findAll() {
 		return ResponseEntity.ok(this.addressClientService.findAll().getBody());
 	}
 	

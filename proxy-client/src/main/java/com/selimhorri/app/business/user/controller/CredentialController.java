@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.selimhorri.app.business.user.model.CredentialDto;
-import com.selimhorri.app.business.user.model.dto.response.CredentialServiceCollectionDtoResponse;
+import com.selimhorri.app.business.user.model.response.CredentialUserServiceCollectionDtoResponse;
 import com.selimhorri.app.business.user.service.CredentialClientService;
 
 import lombok.RequiredArgsConstructor;
@@ -24,7 +24,7 @@ public class CredentialController {
 	private final CredentialClientService credentialClientService;
 	
 	@GetMapping
-	public ResponseEntity<CredentialServiceCollectionDtoResponse> findAll() {
+	public ResponseEntity<CredentialUserServiceCollectionDtoResponse> findAll() {
 		return ResponseEntity.ok(this.credentialClientService.findAll().getBody());
 	}
 	

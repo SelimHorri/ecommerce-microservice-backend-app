@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.selimhorri.app.business.user.model.UserDto;
-import com.selimhorri.app.business.user.model.dto.response.UserServiceCollectionDtoResponse;
+import com.selimhorri.app.business.user.model.response.UserUserServiceCollectionDtoResponse;
 
 @FeignClient(name = "USER-SERVICE", contextId = "userClientService", path = "/user-service/api/users", decode404 = true)
 public interface UserClientService {
 	
 	@GetMapping
-	ResponseEntity<UserServiceCollectionDtoResponse> findAll();
+	ResponseEntity<UserUserServiceCollectionDtoResponse> findAll();
 	
 	@GetMapping("/{userId}")
 	ResponseEntity<UserDto> findById(

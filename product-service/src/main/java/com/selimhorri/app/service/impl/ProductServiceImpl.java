@@ -70,12 +70,6 @@ public class ProductServiceImpl implements ProductService {
 				.map(this.findById(productId)));
 	}
 	
-	@Override
-	public void deleteByCategoryCategoryId(final Integer categoryId) {
-		log.info("*** Void, service; delete product(s) by categoryId *");
-		this.productRepository.deleteByCategoryCategoryId(categoryId);
-	}
-	
 	
 	
 }

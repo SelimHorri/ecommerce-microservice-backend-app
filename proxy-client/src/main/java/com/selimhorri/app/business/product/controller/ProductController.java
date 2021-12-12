@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.selimhorri.app.business.product.model.ProductDto;
-import com.selimhorri.app.business.product.model.response.ProductServiceCollectionDtoResponse;
+import com.selimhorri.app.business.product.model.response.ProductProductServiceCollectionDtoResponse;
 import com.selimhorri.app.business.product.service.ProductClientService;
 
 import lombok.RequiredArgsConstructor;
@@ -24,7 +24,7 @@ public class ProductController {
 	private final ProductClientService productClientService;
 	
 	@GetMapping
-	public ResponseEntity<ProductServiceCollectionDtoResponse> findAll() {
+	public ResponseEntity<ProductProductServiceCollectionDtoResponse> findAll() {
 		return ResponseEntity.ok(this.productClientService.findAll().getBody());
 	}
 	

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.selimhorri.app.business.user.model.UserDto;
-import com.selimhorri.app.business.user.model.dto.response.UserServiceCollectionDtoResponse;
+import com.selimhorri.app.business.user.model.response.UserUserServiceCollectionDtoResponse;
 import com.selimhorri.app.business.user.service.UserClientService;
 
 import lombok.RequiredArgsConstructor;
@@ -24,7 +24,7 @@ public class UserController {
 	private final UserClientService userClientService;
 	
 	@GetMapping
-	public ResponseEntity<UserServiceCollectionDtoResponse> findAll() {
+	public ResponseEntity<UserUserServiceCollectionDtoResponse> findAll() {
 		return ResponseEntity.ok(this.userClientService.findAll().getBody());
 	}
 	

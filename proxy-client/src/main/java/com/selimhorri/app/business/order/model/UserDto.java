@@ -1,7 +1,6 @@
-package com.selimhorri.app.dto;
+package com.selimhorri.app.business.order.model;
 
 import java.io.Serializable;
-import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -15,18 +14,18 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Builder
-public class CartDto implements Serializable {
+public class UserDto implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-	
-	private Integer cartId;
 	private Integer userId;
+	private String firstName;
+	private String lastName;
+	private String imageUrl;
+	private String email;
+	private String phone;
 	
 	@JsonInclude(Include.NON_NULL)
-	private Set<OrderDto> orderDtos;
-	
-	@JsonInclude(Include.NON_NULL)
-	private UserDto userDto;
+	private CartDto cartDto;
 	
 }
 

@@ -1,9 +1,9 @@
-package com.selimhorri.app.business.favourite.model.dto.response;
+package com.selimhorri.app.business.order.model.response;
 
 import java.io.Serializable;
 import java.util.Collection;
 
-import com.selimhorri.app.business.favourite.model.FavouriteDto;
+import com.selimhorri.app.business.order.model.CartDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,9 +14,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Builder
-public class FavouriteServiceCollectionDtoResponse implements Serializable {
+public class CartOrderServiceDtoCollectionResponse implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-	private Collection<FavouriteDto> collection;
+	private Collection<CartDto> collection;
 	
 }

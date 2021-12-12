@@ -1,9 +1,9 @@
-package com.selimhorri.app.business.user.model.dto.response;
+package com.selimhorri.app.business.user.model.response;
 
 import java.io.Serializable;
 import java.util.Collection;
 
-import com.selimhorri.app.business.user.model.UserDto;
+import com.selimhorri.app.business.user.model.CredentialDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,9 +14,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Builder
-public class UserServiceCollectionDtoResponse implements Serializable {
+public class CredentialUserServiceCollectionDtoResponse implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-	private Collection<UserDto> collection;
+	private Collection<CredentialDto> collection;
 	
 }

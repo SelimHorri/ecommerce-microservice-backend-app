@@ -43,7 +43,7 @@ public final class Product extends AbstractMappedEntity implements Serializable 
 	@Column(unique = true)
 	private String sku;
 	
-	@Column(name = "price_unit")
+	@Column(name = "price_unit", columnDefinition = "decimal")
 	private Double priceUnit;
 	
 	@Column(name = "quantity")

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.selimhorri.app.business.user.model.VerificationTokenDto;
-import com.selimhorri.app.business.user.model.dto.response.VerificationTokenServiceCollectionDtoResponse;
+import com.selimhorri.app.business.user.model.response.VerificationUserTokenServiceCollectionDtoResponse;
 import com.selimhorri.app.business.user.service.VerificationTokenClientService;
 
 import lombok.RequiredArgsConstructor;
@@ -24,7 +24,7 @@ public class VerificationTokenController {
 	private final VerificationTokenClientService verificationTokenClientService;
 	
 	@GetMapping
-	public ResponseEntity<VerificationTokenServiceCollectionDtoResponse> findAll() {
+	public ResponseEntity<VerificationUserTokenServiceCollectionDtoResponse> findAll() {
 		return ResponseEntity.ok(this.verificationTokenClientService.findAll().getBody());
 	}
 	

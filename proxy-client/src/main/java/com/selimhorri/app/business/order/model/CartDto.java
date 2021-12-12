@@ -1,4 +1,4 @@
-package com.selimhorri.app.dto;
+package com.selimhorri.app.business.order.model;
 
 import java.io.Serializable;
 import java.util.Set;

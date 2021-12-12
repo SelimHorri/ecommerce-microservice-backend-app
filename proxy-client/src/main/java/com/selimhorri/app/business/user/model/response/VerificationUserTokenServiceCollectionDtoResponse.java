@@ -1,9 +1,9 @@
-package com.selimhorri.app.business.product.model.response;
+package com.selimhorri.app.business.user.model.response;
 
 import java.io.Serializable;
 import java.util.Collection;
 
-import com.selimhorri.app.business.product.model.CategoryDto;
+import com.selimhorri.app.business.user.model.VerificationTokenDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,9 +14,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Builder
-public class CategoryServiceCollectionDtoResponse implements Serializable {
+public class VerificationUserTokenServiceCollectionDtoResponse implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-	private Collection<CategoryDto> collection;
+	private Collection<VerificationTokenDto> collection;
 	
 }

@@ -4,7 +4,6 @@ import com.selimhorri.app.domain.Cart;
 import com.selimhorri.app.domain.Order;
 import com.selimhorri.app.dto.CartDto;
 import com.selimhorri.app.dto.OrderDto;
-import com.selimhorri.app.dto.UserDto;
 
 public interface OrderMappingHelper {
 	
@@ -17,9 +16,6 @@ public interface OrderMappingHelper {
 				.cartDto(
 						CartDto.builder()
 							.cartId(order.getCart().getCartId())
-							.userDto(
-									UserDto.builder()
-									.build())
 							.build())
 				.build();
 	}

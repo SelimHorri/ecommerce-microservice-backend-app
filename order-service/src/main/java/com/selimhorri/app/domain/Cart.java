@@ -37,6 +37,9 @@ public final class Cart extends AbstractMappedEntity implements Serializable {
 	@Column(name = "cart_id", unique = true, nullable = false, updatable = false)
 	private Integer cartId;
 	
+	@Column(name = "user_id")
+	private Integer userId;
+	
 	@JsonIgnore
 	@OneToMany(mappedBy = "cart", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Set<Order> orders;

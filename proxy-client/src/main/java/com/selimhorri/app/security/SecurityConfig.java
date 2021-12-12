@@ -13,8 +13,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import com.selimhorri.app.business.user.model.Role;
 import com.selimhorri.app.config.filter.JwtRequestFilter;
-import com.selimhorri.app.model.Role;
 
 import lombok.RequiredArgsConstructor;
 

@@ -2,6 +2,9 @@ package com.selimhorri.app.dto;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,6 +23,9 @@ public class UserDto implements Serializable {
 	private String imageUrl;
 	private String email;
 	private String phone;
+	
+	@JsonInclude(Include.NON_NULL)
+	private CartDto cartDto;
 	
 }
 

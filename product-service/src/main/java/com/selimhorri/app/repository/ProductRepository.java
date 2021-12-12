@@ -6,6 +6,6 @@ import com.selimhorri.app.domain.Product;
 
 public interface ProductRepository extends JpaRepository<Product, Integer> {
 	
-	void deleteByCategoryCategoryId(final Integer categoryId);
+	
 	
 }

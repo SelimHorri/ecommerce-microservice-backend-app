@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.selimhorri.app.business.product.model.CategoryDto;
-import com.selimhorri.app.business.product.model.response.CategoryServiceCollectionDtoResponse;
+import com.selimhorri.app.business.product.model.response.CategoryProductServiceCollectionDtoResponse;
 
 @FeignClient(name = "PRODUCT-SERVICE", contextId = "categoryClientService", path = "/product-service/api/categories")
 public interface CategoryClientService {
 	
 	@GetMapping
-	ResponseEntity<CategoryServiceCollectionDtoResponse> findAll();
+	ResponseEntity<CategoryProductServiceCollectionDtoResponse> findAll();
 	
 	@GetMapping("/{categoryId}")
 	ResponseEntity<CategoryDto> findById(

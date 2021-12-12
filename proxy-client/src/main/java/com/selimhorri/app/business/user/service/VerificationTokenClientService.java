@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.selimhorri.app.business.user.model.VerificationTokenDto;
-import com.selimhorri.app.business.user.model.dto.response.VerificationTokenServiceCollectionDtoResponse;
+import com.selimhorri.app.business.user.model.response.VerificationUserTokenServiceCollectionDtoResponse;
 
 @FeignClient(name = "USER-SERVICE", contextId = "verificationTokenClientService", path = "/user-service/api/verificationTokens", decode404 = true)
 public interface VerificationTokenClientService {
 	
 	@GetMapping
-	ResponseEntity<VerificationTokenServiceCollectionDtoResponse> findAll();
+	ResponseEntity<VerificationUserTokenServiceCollectionDtoResponse> findAll();
 	
 	@GetMapping("/{verificationTokenId}")
 	ResponseEntity<VerificationTokenDto> findById(

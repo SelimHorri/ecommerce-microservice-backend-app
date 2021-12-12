@@ -1,4 +1,4 @@
-package com.selimhorri.app.business.auth.model.dto.response;
+package com.selimhorri.app.business.auth.model.response;
 
 import java.io.Serializable;
 

@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.selimhorri.app.business.user.model.CredentialDto;
-import com.selimhorri.app.business.user.model.dto.response.CredentialServiceCollectionDtoResponse;
+import com.selimhorri.app.business.user.model.response.CredentialUserServiceCollectionDtoResponse;
 
 @FeignClient(name = "USER-SERVICE", contextId = "credentialClientService", path = "/user-service/api/credentials", decode404 = true)
 public interface CredentialClientService {
 	
 	@GetMapping
-	ResponseEntity<CredentialServiceCollectionDtoResponse> findAll();
+	ResponseEntity<CredentialUserServiceCollectionDtoResponse> findAll();
 	
 	@GetMapping("/{credentialId}")
 	ResponseEntity<CredentialDto> findById(

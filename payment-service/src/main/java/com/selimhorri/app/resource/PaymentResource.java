@@ -38,7 +38,7 @@ public class PaymentResource {
 	@GetMapping("/{paymentId}")
 	public ResponseEntity<PaymentDto> findById(
 			@PathVariable("paymentId") 
-			@NotBlank(message = "Input must not be blank!") 
+			@NotBlank(message = "Input must not be blank") 
 			@Valid final String paymentId) {
 		log.info("*** PaymentDto, resource; fetch payment by id *");
 		return ResponseEntity.ok(this.paymentService.findById(Integer.parseInt(paymentId)));
@@ -47,7 +47,7 @@ public class PaymentResource {
 	@PostMapping
 	public ResponseEntity<PaymentDto> save(
 			@RequestBody 
-			@NotNull(message = "Input must not be NULL!") 
+			@NotNull(message = "Input must not be NULL") 
 			@Valid final PaymentDto paymentDto) {
 		log.info("*** PaymentDto, resource; save payment *");
 		return ResponseEntity.ok(this.paymentService.save(paymentDto));
@@ -56,7 +56,7 @@ public class PaymentResource {
 	@PutMapping
 	public ResponseEntity<PaymentDto> update(
 			@RequestBody 
-			@NotNull(message = "Input must not be NULL!") 
+			@NotNull(message = "Input must not be NULL") 
 			@Valid final PaymentDto paymentDto) {
 		log.info("*** PaymentDto, resource; update payment *");
 		return ResponseEntity.ok(this.paymentService.update(paymentDto));

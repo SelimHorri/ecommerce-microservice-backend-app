@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import com.selimhorri.app.exception.payload.ExceptionMsg;
 import com.selimhorri.app.exception.wrapper.CredentialNotFoundException;
 import com.selimhorri.app.exception.wrapper.FavouriteNotFoundException;
-import com.selimhorri.app.exception.wrapper.UserNotFoundException;
+import com.selimhorri.app.exception.wrapper.UserObjectNotFoundException;
 import com.selimhorri.app.exception.wrapper.VerificationTokenNotFoundException;
 
 import feign.FeignException;
@@ -66,7 +66,7 @@ public class ApiExceptionHandler {
 	}
 	
 	@ExceptionHandler(value = {
-		UserNotFoundException.class,
+		UserObjectNotFoundException.class,
 		CredentialNotFoundException.class,
 		VerificationTokenNotFoundException.class,
 		FavouriteNotFoundException.class,

@@ -38,7 +38,7 @@ public class CartResource {
 	@GetMapping("/{cartId}")
 	public ResponseEntity<CartDto> findById(
 			@PathVariable("cartId") 
-			@NotBlank(message = "Input must not be blank!") 
+			@NotBlank(message = "Input must not be blank") 
 			@Valid final String cartId) {
 		log.info("*** CartDto, resource; fetch cart by id *");
 		return ResponseEntity.ok(this.cartService.findById(Integer.parseInt(cartId)));
@@ -56,7 +56,7 @@ public class CartResource {
 	@PutMapping
 	public ResponseEntity<CartDto> update(
 			@RequestBody 
-			@NotNull(message = "Input must not be NULL!") 
+			@NotNull(message = "Input must not be NULL") 
 			@Valid final CartDto cartDto) {
 		log.info("*** CartDto, resource; update cart *");
 		return ResponseEntity.ok(this.cartService.update(cartDto));
@@ -65,10 +65,10 @@ public class CartResource {
 	@PutMapping("/{cartId}")
 	public ResponseEntity<CartDto> update(
 			@PathVariable("cartId")
-			@NotBlank(message = "Input must not be blank!")
+			@NotBlank(message = "Input must not be blank")
 			@Valid final String cartId,
 			@RequestBody 
-			@NotNull(message = "Input must not be NULL!") 
+			@NotNull(message = "Input must not be NULL") 
 			@Valid final CartDto cartDto) {
 		log.info("*** CartDto, resource; update cart with cartId *");
 		return ResponseEntity.ok(this.cartService.update(Integer.parseInt(cartId), cartDto));

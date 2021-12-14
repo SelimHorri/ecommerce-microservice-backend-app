@@ -1,8 +1,8 @@
 
 INSERT INTO payments
 (order_id, is_payed, payment_status) VALUES
-(1, false, 'on_hold'),
-(2, false, 'on_hold'),
-(3, false, 'on_hold'),
-(4, false, 'on_hold');
+(1, false, 'IN_PROGRESS'),
+(2, false, 'IN_PROGRESS'),
+(3, false, 'IN_PROGRESS'),
+(4, false, 'IN_PROGRESS');
 

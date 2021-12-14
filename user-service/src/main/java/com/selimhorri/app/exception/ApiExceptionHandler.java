@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import com.selimhorri.app.exception.payload.ExceptionMsg;
 import com.selimhorri.app.exception.wrapper.AddressNotFoundException;
 import com.selimhorri.app.exception.wrapper.CredentialNotFoundException;
-import com.selimhorri.app.exception.wrapper.UserNotFoundException;
+import com.selimhorri.app.exception.wrapper.UserObjectNotFoundException;
 import com.selimhorri.app.exception.wrapper.VerificationTokenNotFoundException;
 
 import lombok.RequiredArgsConstructor;
@@ -36,7 +36,7 @@ public class ApiExceptionHandler {
 		
 		return new ResponseEntity<>(
 				ExceptionMsg.builder()
-					.msg(e.getBindingResult().getFieldError().getDefaultMessage())
+					.msg("*" + e.getBindingResult().getFieldError().getDefaultMessage() + "!**")
 					.httpStatus(badRequest)
 					.timestamp(ZonedDateTime
 							.now(ZoneId.systemDefault()))
@@ -44,7 +44,7 @@ public class ApiExceptionHandler {
 	}
 	
 	@ExceptionHandler(value = {
-		UserNotFoundException.class,
+		UserObjectNotFoundException.class,
 		CredentialNotFoundException.class,
 		VerificationTokenNotFoundException.class,
 		AddressNotFoundException.class
@@ -56,7 +56,7 @@ public class ApiExceptionHandler {
 		
 		return new ResponseEntity<>(
 				ExceptionMsg.builder()
-					.msg(e.getMessage())
+					.msg("#### " + e.getMessage() + "! ####")
 					.httpStatus(badRequest)
 					.timestamp(ZonedDateTime
 							.now(ZoneId.systemDefault()))

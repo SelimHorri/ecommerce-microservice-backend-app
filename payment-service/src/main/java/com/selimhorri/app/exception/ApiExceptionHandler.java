@@ -49,7 +49,7 @@ public class ApiExceptionHandler {
 		
 		return new ResponseEntity<>(
 				ExceptionMsg.builder()
-					.msg("#### " + e.getMessage() + " ####")
+					.msg("#### " + e.getMessage() + "! ####")
 					.httpStatus(badRequest)
 					.timestamp(ZonedDateTime
 							.now(ZoneId.systemDefault()))

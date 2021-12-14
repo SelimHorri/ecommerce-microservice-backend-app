@@ -38,7 +38,7 @@ public class VerificationTokenResource {
 	@GetMapping("/{verificationTokenId}")
 	public ResponseEntity<VerificationTokenDto> findById(
 			@PathVariable("verificationTokenId") 
-			@NotBlank(message = "*Input must not blank!**") 
+			@NotBlank(message = "Input must not blank") 
 			@Valid final String verificationTokenId) {
 		log.info("*** VerificationTokenDto, resource; fetch verificationToken by id *");
 		return ResponseEntity.ok(this.verificationTokenService.findById(Integer.parseInt(verificationTokenId.strip())));
@@ -47,7 +47,7 @@ public class VerificationTokenResource {
 	@PostMapping
 	public ResponseEntity<VerificationTokenDto> save(
 			@RequestBody 
-			@NotNull(message = "*Input must not NULL!**") 
+			@NotNull(message = "Input must not NULL") 
 			@Valid final VerificationTokenDto verificationTokenDto) {
 		log.info("*** VerificationTokenDto, resource; save verificationToken *");
 		return ResponseEntity.ok(this.verificationTokenService.save(verificationTokenDto));
@@ -56,7 +56,7 @@ public class VerificationTokenResource {
 	@PutMapping
 	public ResponseEntity<VerificationTokenDto> update(
 			@RequestBody 
-			@NotNull(message = "*Input must not NULL!**") 
+			@NotNull(message = "Input must not NULL") 
 			@Valid final VerificationTokenDto verificationTokenDto) {
 		log.info("*** VerificationTokenDto, resource; update verificationToken *");
 		return ResponseEntity.ok(this.verificationTokenService.update(verificationTokenDto));
@@ -65,9 +65,9 @@ public class VerificationTokenResource {
 	@PutMapping("/{verificationTokenId}")
 	public ResponseEntity<VerificationTokenDto> update(
 			@PathVariable("verificationTokenId") 
-			@NotBlank(message = "*Input must not blank!**") final String verificationTokenId, 
+			@NotBlank(message = "Input must not blank") final String verificationTokenId, 
 			@RequestBody 
-			@NotNull(message = "*Input must not NULL!**") 
+			@NotNull(message = "Input must not NULL") 
 			@Valid final VerificationTokenDto verificationTokenDto) {
 		log.info("*** VerificationTokenDto, resource; update verificationToken with verificationTokenId *");
 		return ResponseEntity.ok(this.verificationTokenService.update(Integer.parseInt(verificationTokenId.strip()), verificationTokenDto));
@@ -76,7 +76,7 @@ public class VerificationTokenResource {
 	@DeleteMapping("/{verificationTokenId}")
 	public ResponseEntity<Boolean> deleteById(
 			@PathVariable("verificationTokenId") 
-			@NotBlank(message = "*Input must not blank!**") final String verificationTokenId) {
+			@NotBlank(message = "Input must not blank") final String verificationTokenId) {
 		log.info("*** Boolean, resource; delete verificationToken by id *");
 		this.verificationTokenService.deleteById(Integer.parseInt(verificationTokenId));
 		return ResponseEntity.ok(true);

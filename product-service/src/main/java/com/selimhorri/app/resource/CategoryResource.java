@@ -38,7 +38,7 @@ public class CategoryResource {
 	@GetMapping("/{categoryId}")
 	public ResponseEntity<CategoryDto> findById(
 			@PathVariable("categoryId") 
-			@NotBlank(message = "Input must not be blank!") 
+			@NotBlank(message = "Input must not be blank") 
 			@Valid final String categoryId) {
 		log.info("*** CategoryDto, resource; fetch category by id *");
 		return ResponseEntity.ok(this.categoryService.findById(Integer.parseInt(categoryId)));
@@ -47,7 +47,7 @@ public class CategoryResource {
 	@PostMapping
 	public ResponseEntity<CategoryDto> save(
 			@RequestBody 
-			@NotNull(message = "Input must not be NULL!") 
+			@NotNull(message = "Input must not be NULL") 
 			@Valid final CategoryDto categoryDto) {
 		log.info("*** CategoryDto, resource; save category *");
 		return ResponseEntity.ok(this.categoryService.save(categoryDto));
@@ -56,7 +56,7 @@ public class CategoryResource {
 	@PutMapping
 	public ResponseEntity<CategoryDto> update(
 			@RequestBody 
-			@NotNull(message = "Input must not be NULL!") 
+			@NotNull(message = "Input must not be NULL") 
 			@Valid final CategoryDto categoryDto) {
 		log.info("*** CategoryDto, resource; update category *");
 		return ResponseEntity.ok(this.categoryService.update(categoryDto));
@@ -65,10 +65,10 @@ public class CategoryResource {
 	@PutMapping("/{categoryId}")
 	public ResponseEntity<CategoryDto> update(
 			@PathVariable("categoryId")
-			@NotBlank(message = "Input must not be blank!")
+			@NotBlank(message = "Input must not be blank")
 			@Valid final String categoryId,
 			@RequestBody 
-			@NotNull(message = "Input must not be NULL!") 
+			@NotNull(message = "Input must not be NULL") 
 			@Valid final CategoryDto categoryDto) {
 		log.info("*** CategoryDto, resource; update category with categoryId *");
 		return ResponseEntity.ok(this.categoryService.update(Integer.parseInt(categoryId), categoryDto));

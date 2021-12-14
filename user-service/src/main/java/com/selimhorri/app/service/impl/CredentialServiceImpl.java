@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.selimhorri.app.dto.CredentialDto;
 import com.selimhorri.app.exception.wrapper.CredentialNotFoundException;
-import com.selimhorri.app.exception.wrapper.UserNotFoundException;
+import com.selimhorri.app.exception.wrapper.UserObjectNotFoundException;
 import com.selimhorri.app.helper.CredentialMappingHelper;
 import com.selimhorri.app.repository.CredentialRepository;
 import com.selimhorri.app.service.CredentialService;
@@ -71,7 +71,7 @@ public class CredentialServiceImpl implements CredentialService {
 	@Override
 	public CredentialDto findByUsername(final String username) {
 		return CredentialMappingHelper.map(this.credentialRepository.findByUsername(username)
-				.orElseThrow(() -> new UserNotFoundException(String.format("#### Credential with username: %s not found! ####", username))));
+				.orElseThrow(() -> new UserObjectNotFoundException(String.format("#### Credential with username: %s not found! ####", username))));
 	}
 	
 	

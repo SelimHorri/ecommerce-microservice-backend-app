@@ -38,7 +38,7 @@ public class OrderResource {
 	@GetMapping("/{orderId}")
 	public ResponseEntity<OrderDto> findById(
 			@PathVariable("orderId") 
-			@NotBlank(message = "Input must not be blank!") 
+			@NotBlank(message = "Input must not be blank") 
 			@Valid final String orderId) {
 		log.info("*** OrderDto, resource; fetch order by id *");
 		return ResponseEntity.ok(this.orderService.findById(Integer.parseInt(orderId)));
@@ -47,7 +47,7 @@ public class OrderResource {
 	@PostMapping
 	public ResponseEntity<OrderDto> save(
 			@RequestBody 
-			@NotNull(message = "Input must not be NULL!") 
+			@NotNull(message = "Input must not be NULL") 
 			@Valid final OrderDto orderDto) {
 		log.info("*** OrderDto, resource; save order *");
 		return ResponseEntity.ok(this.orderService.save(orderDto));
@@ -56,7 +56,7 @@ public class OrderResource {
 	@PutMapping
 	public ResponseEntity<OrderDto> update(
 			@RequestBody 
-			@NotNull(message = "Input must not be NULL!") 
+			@NotNull(message = "Input must not be NULL") 
 			@Valid final OrderDto orderDto) {
 		log.info("*** OrderDto, resource; update order *");
 		return ResponseEntity.ok(this.orderService.update(orderDto));
@@ -65,10 +65,10 @@ public class OrderResource {
 	@PutMapping("/{orderId}")
 	public ResponseEntity<OrderDto> update(
 			@PathVariable("orderId")
-			@NotBlank(message = "Input must not be blank!")
+			@NotBlank(message = "Input must not be blank")
 			@Valid final String orderId,
 			@RequestBody 
-			@NotNull(message = "Input must not be NULL!") 
+			@NotNull(message = "Input must not be NULL") 
 			@Valid final OrderDto orderDto) {
 		log.info("*** OrderDto, resource; update order with orderId *");
 		return ResponseEntity.ok(this.orderService.update(Integer.parseInt(orderId), orderDto));

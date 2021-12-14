@@ -21,6 +21,9 @@ public abstract class AppConstant {
 		public static final String PRODUCT_SERVICE_HOST = "http://PRODUCT-SERVICE/product-service";
 		public static final String PRODUCT_SERVICE_API_URL = "http://PRODUCT-SERVICE/product-service/api/products";
 		
+		public static final String ORDER_SERVICE_HOST = "http://ORDER-SERVICE/order-service";
+		public static final String ORDER_SERVICE_API_URL = "http://ORDER-SERVICE/order-service/api/orders";
+		
 	}
 	
 	

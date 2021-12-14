@@ -10,6 +10,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.selimhorri.app.constant.AppConstant;
 import com.selimhorri.app.domain.id.OrderItemId;
+import com.selimhorri.app.dto.OrderDto;
 import com.selimhorri.app.dto.OrderItemDto;
 import com.selimhorri.app.dto.ProductDto;
 import com.selimhorri.app.exception.wrapper.OrderItemNotFoundException;
@@ -38,6 +39,8 @@ public class OrderItemServiceImpl implements OrderItemService {
 					.map(o -> {
 						o.setProductDto(this.restTemplate.getForObject(AppConstant.DiscoveredDomainsApi
 								.PRODUCT_SERVICE_API_URL + "/" + o.getProductDto().getProductId(), ProductDto.class));
+						o.setOrderDto(this.restTemplate.getForObject(AppConstant.DiscoveredDomainsApi
+								.ORDER_SERVICE_API_URL + "/" + o.getOrderDto().getOrderId(), OrderDto.class));
 						return o;
 					})
 					.distinct()
@@ -49,6 +52,13 @@ public class OrderItemServiceImpl implements OrderItemService {
 		log.info("*** OrderItemDto, service; fetch orderItem by id *");
 		return this.orderItemRepository.findById(null)
 				.map(OrderItemMappingHelper::map)
+				.map(o -> {
+					o.setProductDto(this.restTemplate.getForObject(AppConstant.DiscoveredDomainsApi
+							.PRODUCT_SERVICE_API_URL + "/" + o.getProductDto().getProductId(), ProductDto.class));
+					o.setOrderDto(this.restTemplate.getForObject(AppConstant.DiscoveredDomainsApi
+							.ORDER_SERVICE_API_URL + "/" + o.getOrderDto().getOrderId(), OrderDto.class));
+					return o;
+				})
 				.orElseThrow(() -> new OrderItemNotFoundException(String.format("OrderItem with id: %s not found", orderItemId)));
 	}
 	

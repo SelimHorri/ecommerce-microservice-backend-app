@@ -38,7 +38,7 @@ public class CredentialResource {
 	@GetMapping("/{credentialId}")
 	public ResponseEntity<CredentialDto> findById(
 			@PathVariable("credentialId") 
-			@NotBlank(message = "*Input must not blank!**") 
+			@NotBlank(message = "Input must not blank") 
 			@Valid final String credentialId) {
 		log.info("*** CredentialDto, resource; fetch credential by id *");
 		return ResponseEntity.ok(this.credentialService.findById(Integer.parseInt(credentialId.strip())));
@@ -47,7 +47,7 @@ public class CredentialResource {
 	@PostMapping
 	public ResponseEntity<CredentialDto> save(
 			@RequestBody 
-			@NotNull(message = "*Input must not NULL!**") 
+			@NotNull(message = "Input must not NULL") 
 			@Valid final CredentialDto credentialDto) {
 		log.info("*** CredentialDto, resource; save credential *");
 		return ResponseEntity.ok(this.credentialService.save(credentialDto));
@@ -56,7 +56,7 @@ public class CredentialResource {
 	@PutMapping
 	public ResponseEntity<CredentialDto> update(
 			@RequestBody 
-			@NotNull(message = "*Input must not NULL!**") 
+			@NotNull(message = "Input must not NULL") 
 			@Valid final CredentialDto credentialDto) {
 		log.info("*** CredentialDto, resource; update credential *");
 		return ResponseEntity.ok(this.credentialService.update(credentialDto));
@@ -65,9 +65,9 @@ public class CredentialResource {
 	@PutMapping("/{credentialId}")
 	public ResponseEntity<CredentialDto> update(
 			@PathVariable("credentialId") 
-			@NotBlank(message = "*Input must not blank!**") final String credentialId, 
+			@NotBlank(message = "Input must not blank") final String credentialId, 
 			@RequestBody 
-			@NotNull(message = "*Input must not NULL!**") 
+			@NotNull(message = "Input must not NULL") 
 			@Valid final CredentialDto credentialDto) {
 		log.info("*** CredentialDto, resource; update credential with credentialId *");
 		return ResponseEntity.ok(this.credentialService.update(Integer.parseInt(credentialId.strip()), credentialDto));
@@ -76,7 +76,7 @@ public class CredentialResource {
 	@DeleteMapping("/{credentialId}")
 	public ResponseEntity<Boolean> deleteById(
 			@PathVariable("credentialId") 
-			@NotBlank(message = "*Input must not blank!**") 
+			@NotBlank(message = "Input must not blank") 
 			@Valid final String credentialId) {
 		log.info("*** Boolean, resource; delete credential by id *");
 		this.credentialService.deleteById(Integer.parseInt(credentialId));
@@ -86,7 +86,7 @@ public class CredentialResource {
 	@GetMapping("/username/{username}")
 	public ResponseEntity<CredentialDto> findByUsername(
 			@PathVariable("username") 
-			@NotBlank(message = "*Input must not blank!**") 
+			@NotBlank(message = "Input must not blank") 
 			@Valid final String username) {
 		log.info("*** CredentialDto, resource; update credential with credentialId *");
 		return ResponseEntity.ok(this.credentialService.findByUsername(username));

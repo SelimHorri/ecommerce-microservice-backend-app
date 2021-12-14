@@ -1,4 +1,4 @@
-package com.selimhorri.app.config.template;
+package com.selimhorri.app.config.client;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
@@ -6,11 +6,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 
 @Configuration
-public class TemplateConfig {
+public class ClientConfig {
 	
 	@LoadBalanced
 	@Bean
-	public RestTemplate getRestTemplate() {
+	public RestTemplate restTemplateBean() {
 		return new RestTemplate();
 	}
 	

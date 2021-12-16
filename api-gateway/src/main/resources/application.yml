@@ -18,17 +18,23 @@ spring:
       indent-output: true
   cloud:
     gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin, RETAIN_UNIQUE
       globalcors:
+        add-to-simple-url-handler-mapping: true
         cors-configurations:
           '[/**]':
-            allowedOrigins: "*"
-            #allowCredentials: true
-            allowedMethods: 
+            allowed-origins: "${CLIENT_HOST:http://localhost:4200}"
+            allowed-headers: "*"
+            exposed-headers: "*"
+            allow-credentials: true
+            allowed-methods: 
               - GET
               - POST
               - PUT
               - DELETE
               - PATCH
+              - OPTIONS
       routes:
       - id: ORDER-SERVICE
         uri: lb://ORDER-SERVICE

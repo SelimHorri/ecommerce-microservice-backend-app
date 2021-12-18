@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>com.selimhorri</groupId>
 		<artifactId>ecommerce-microservice-backend</artifactId>
-		<version>0.1.0</version>
+		<version>0.1.1</version>
 	</parent>
 	<artifactId>order-service</artifactId>
 	<name>order-service</name>

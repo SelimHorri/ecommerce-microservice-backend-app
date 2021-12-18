@@ -2,15 +2,11 @@
 version: '3'
 services:
   api-gateway-container:
-    image: selimhorri/api-gateway
+    image: selimhorri/api-gateway-ecommerce-boot:0.1.1dev
     ports:
       - 8080:8080
     environment:
       - SPRING_PROFILES_ACTIVE=dev
-      - SPRING_ZIPKIN_BASE_URL=http://zipkin-container:9411/
-      - SPRING_CONFIG_IMPORT=optional:configserver:http://cloud-config-container:9296
-      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://user-service-container:8761/eureka
-      - EUREKA_INSTANCE=user-service-container
 
 
 

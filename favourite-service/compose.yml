@@ -2,15 +2,11 @@
 version: '3'
 services:
   favourite-service-container:
-    image: selimhorri/favourite-service
+    image: selimhorri/favourite-service-ecommerce-boot:0.1.0dev
     ports:
       - 8800:8800
     environment:
       - SPRING_PROFILES_ACTIVE=dev
-      - SPRING_ZIPKIN_BASE_URL=http://zipkin-container:9411/
-      - SPRING_CONFIG_IMPORT=optional:configserver:http://cloud-config-container:9296
-      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://user-service-container:8761/eureka
-      - EUREKA_INSTANCE=user-service-container
 
 
 

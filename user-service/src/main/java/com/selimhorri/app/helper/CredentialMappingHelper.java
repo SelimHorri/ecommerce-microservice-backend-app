@@ -12,7 +12,7 @@ public interface CredentialMappingHelper {
 				.credentialId(credential.getCredentialId())
 				.username(credential.getUsername())
 				.password(credential.getPassword())
-				.role(credential.getRole())
+				.roleBasedAuthority(credential.getRoleBasedAuthority())
 				.isEnabled(credential.getIsEnabled())
 				.isAccountNonExpired(credential.getIsAccountNonExpired())
 				.isAccountNonLocked(credential.getIsAccountNonLocked())
@@ -26,7 +26,6 @@ public interface CredentialMappingHelper {
 							.email(credential.getUser().getEmail())
 							.phone(credential.getUser().getPhone())
 							.build())
-				// .verificationTokens(credential.getVerificationTokenDtos())
 				.build();
 	}
 	
@@ -35,7 +34,7 @@ public interface CredentialMappingHelper {
 				.credentialId(credentialDto.getCredentialId())
 				.username(credentialDto.getUsername())
 				.password(credentialDto.getPassword())
-				.role(credentialDto.getRole())
+				.roleBasedAuthority(credentialDto.getRoleBasedAuthority())
 				.isEnabled(credentialDto.getIsEnabled())
 				.isAccountNonExpired(credentialDto.getIsAccountNonExpired())
 				.isAccountNonLocked(credentialDto.getIsAccountNonLocked())
@@ -49,7 +48,6 @@ public interface CredentialMappingHelper {
 							.email(credentialDto.getUserDto().getEmail())
 							.phone(credentialDto.getUserDto().getPhone())
 							.build())
-				// .verificationTokens(credentialDto.getVerificationTokenDtos())
 				.build();
 	}
 	

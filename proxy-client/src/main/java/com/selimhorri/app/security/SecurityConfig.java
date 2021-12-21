@@ -13,7 +13,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.selimhorri.app.business.user.model.Role;
+import com.selimhorri.app.business.user.model.RoleBasedAuthority;
 import com.selimhorri.app.config.filter.JwtRequestFilter;
 
 import lombok.RequiredArgsConstructor;
@@ -39,8 +39,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.csrf().disable()
 			.authorizeRequests()
 				.antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-				.antMatchers("/api/users/**").hasRole(Role.ROLE_USER.getRole())
-				.antMatchers("/api/authenticate").permitAll()
+				.antMatchers("/api/authenticate/**").permitAll()
+				.antMatchers("/api/products/**").permitAll()
+				.antMatchers("/api/**")
+					.hasAnyRole(RoleBasedAuthority.ROLE_USER.getRole(), RoleBasedAuthority.ROLE_ADMIN.getRole())
+			.and()
+			.headers()
+				.frameOptions()
+				.sameOrigin()
 			.and()
 			.sessionManagement()
 				.sessionCreationPolicy(SessionCreationPolicy.STATELESS)

@@ -48,7 +48,7 @@ public final class Credential extends AbstractMappedEntity implements Serializab
 	
 	@Enumerated(EnumType.STRING)
 	@Column(name = "role")
-	private Role role;
+	private RoleBasedAuthority roleBasedAuthority;
 	
 	@Column(name = "is_enabled")
 	private Boolean isEnabled;

@@ -19,7 +19,7 @@ public class CredentialDto {
 	private Integer credentialId;
 	private String username;
 	private String password;
-	private Role role;
+	private RoleBasedAuthority roleBasedAuthority;
 	private Boolean isEnabled;
 	private Boolean isAccountNonExpired;
 	private Boolean isAccountNonLocked;

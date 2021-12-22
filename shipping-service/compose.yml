@@ -2,7 +2,7 @@
 version: '3'
 services:
   shipping-service-container:
-    image: selimhorri/shipping-service-ecommerce-boot:0.1.0dev
+    image: selimhorri/shipping-service-ecommerce-boot:0.1.0
     ports:
       - 8600:8600
     environment:

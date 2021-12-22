@@ -3,6 +3,7 @@ package com.selimhorri.app.business.user.model;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import lombok.AllArgsConstructor;
@@ -25,8 +26,9 @@ public class CredentialDto {
 	private Boolean isAccountNonLocked;
 	private Boolean isCredentialsNonExpired;
 	
+	@JsonProperty("user")
 	@JsonInclude(value = Include.NON_NULL)
-	private UserDto user;
+	private UserDto userDto;
 	
 	@JsonInclude(value = Include.NON_NULL)
 	private Set<VerificationTokenDto> verificationTokenDtos;

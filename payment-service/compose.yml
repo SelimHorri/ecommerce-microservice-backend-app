@@ -2,7 +2,7 @@
 version: '3'
 services:
   payment-service-container:
-    image: selimhorri/payment-service-ecommerce-boot:0.1.0dev
+    image: selimhorri/payment-service-ecommerce-boot:0.1.0
     ports:
       - 8400:8400
     environment:

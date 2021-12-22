@@ -2,7 +2,7 @@
 version: '3'
 services:
   cloud-config-container:
-    image: selimhorri/cloud-config-ecommerce-boot:0.1.0dev
+    image: selimhorri/cloud-config-ecommerce-boot:0.1.0
     ports:
       - 9296:9296
     environment:

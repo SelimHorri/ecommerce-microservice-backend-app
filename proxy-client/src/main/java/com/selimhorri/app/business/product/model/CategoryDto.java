@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import lombok.AllArgsConstructor;
@@ -26,6 +27,7 @@ public class CategoryDto implements Serializable {
 	@JsonInclude(Include.NON_NULL)
 	private Set<CategoryDto> subCategoriesDtos;
 	
+	@JsonProperty("parentCategory")
 	@JsonInclude(Include.NON_NULL)
 	private CategoryDto parentCategoryDto;
 	

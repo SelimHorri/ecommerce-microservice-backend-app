@@ -3,6 +3,7 @@ package com.selimhorri.app.business.product.model;
 import java.io.Serializable;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import lombok.AllArgsConstructor;
@@ -24,6 +25,7 @@ public class ProductDto implements Serializable {
 	private Double priceUnit;
 	private Integer quantity;
 	
+	@JsonProperty("category")
 	@JsonInclude(Include.NON_NULL)
 	private CategoryDto categoryDto;
 	

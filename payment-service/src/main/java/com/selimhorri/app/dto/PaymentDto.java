@@ -3,6 +3,7 @@ package com.selimhorri.app.dto;
 import java.io.Serializable;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.selimhorri.app.domain.PaymentStatus;
 
@@ -23,6 +24,7 @@ public class PaymentDto implements Serializable {
 	private Boolean isPayed;
 	private PaymentStatus paymentStatus;
 	
+	@JsonProperty("order")
 	@JsonInclude(Include.NON_NULL)
 	private OrderDto orderDto;
 	

@@ -3,6 +3,7 @@ package com.selimhorri.app.dto;
 import java.io.Serializable;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import lombok.AllArgsConstructor;
@@ -22,9 +23,11 @@ public class OrderItemDto implements Serializable {
 	private Integer orderId;
 	private Integer orderedQuantity;
 	
+	@JsonProperty("product")
 	@JsonInclude(Include.NON_NULL)
 	private ProductDto productDto;
 	
+	@JsonProperty("order")
 	@JsonInclude(Include.NON_NULL)
 	private OrderDto orderDto;
 	

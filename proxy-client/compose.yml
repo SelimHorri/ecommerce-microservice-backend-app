@@ -2,7 +2,7 @@
 version: '3'
 services:
   auth-service-container:
-    image: selimhorri/proxy-client-ecommerce-boot:0.1.0dev
+    image: selimhorri/proxy-client-ecommerce-boot:0.1.0
     ports:
       - 8900:8900
     environment:

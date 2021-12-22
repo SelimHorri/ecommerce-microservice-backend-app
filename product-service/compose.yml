@@ -2,7 +2,7 @@
 version: '3'
 services:
   product-service-container:
-    image: selimhorri/product-service-ecommerce-boot:0.1.0dev
+    image: selimhorri/product-service-ecommerce-boot:0.1.0
     ports:
       - 8500:8500
     environment:

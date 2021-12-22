@@ -2,7 +2,7 @@
 version: '3'
 services:
   user-service-container:
-    image: selimhorri/user-service-ecommerce-boot:0.1.0dev
+    image: selimhorri/user-service-ecommerce-boot:0.1.0
     ports:
       - 8700:8700
     environment:

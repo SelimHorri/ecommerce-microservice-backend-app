@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.selimhorri.app.domain.RoleBasedAuthority;
 
@@ -36,6 +37,7 @@ public class CredentialDto implements Serializable {
 	
 	private Boolean isCredentialsNonExpired;
 	
+	@JsonProperty("user")
 	@JsonInclude(value = Include.NON_NULL)
 	private UserDto userDto;
 	

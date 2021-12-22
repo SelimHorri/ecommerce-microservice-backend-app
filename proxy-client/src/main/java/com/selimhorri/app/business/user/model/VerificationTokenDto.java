@@ -7,6 +7,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.selimhorri.app.constant.AppConstant;
 
@@ -28,6 +29,7 @@ public class VerificationTokenDto {
 	@DateTimeFormat(pattern = AppConstant.LOCAL_DATE_FORMAT)
 	private LocalDate expireDate;
 	
+	@JsonProperty("credential")
 	@JsonInclude(value = Include.NON_NULL)
 	private CredentialDto credentialDto;
 	

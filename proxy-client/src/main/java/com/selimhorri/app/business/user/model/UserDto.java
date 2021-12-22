@@ -3,6 +3,7 @@ package com.selimhorri.app.business.user.model;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import lombok.AllArgsConstructor;
@@ -26,6 +27,7 @@ public class UserDto {
 	@JsonInclude(value = Include.NON_NULL)
 	private Set<AddressDto> addressDtos;
 	
+	@JsonProperty("credential")
 	@JsonInclude(value = Include.NON_NULL)
 	private CredentialDto credentialDto;
 	

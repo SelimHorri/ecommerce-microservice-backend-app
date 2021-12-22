@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import lombok.AllArgsConstructor;
@@ -25,6 +26,7 @@ public class CartDto implements Serializable {
 	@JsonInclude(Include.NON_NULL)
 	private Set<OrderDto> orderDtos;
 	
+	@JsonProperty("user")
 	@JsonInclude(Include.NON_NULL)
 	private UserDto userDto;
 	

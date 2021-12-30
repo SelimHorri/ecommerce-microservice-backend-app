@@ -161,7 +161,7 @@ Note that it is accessed through API Gateway and is secured. Therefore the brows
 -->
 The **API Gateway** and **Store Service** both act as a *resource server*. <!--To know more about calling Store API in a secure way you can check the `test-em-all.sh` script on how I have changed the calling of the services using **OAuth2** security.-->
 
-#### Check all Actuator exposed metrics http://localhost:8080/app/actuator/metrics:
+#### Check all **Spring Boot Actuator** exposed metrics http://localhost:8080/app/actuator/metrics:
 
 ```bash
 {
@@ -216,6 +216,219 @@ The **API Gateway** and **Store Service** both act as a *resource server*. <!--T
         "zipkin.reporter.spans.total"
     ]
 }
+```
+
+#### Prometheus exposed metrics at http://localhost:8080/app/actuator/prometheus
+
+```bash
+# HELP resilience4j_circuitbreaker_not_permitted_calls_total Total number of not permitted calls
+# TYPE resilience4j_circuitbreaker_not_permitted_calls_total counter
+resilience4j_circuitbreaker_not_permitted_calls_total{kind="not_permitted",name="proxyService",} 0.0
+# HELP jvm_gc_live_data_size_bytes Size of long-lived heap memory pool after reclamation
+# TYPE jvm_gc_live_data_size_bytes gauge
+jvm_gc_live_data_size_bytes 3721880.0
+# HELP jvm_gc_pause_seconds Time spent in GC pause
+# TYPE jvm_gc_pause_seconds summary
+jvm_gc_pause_seconds_count{action="end of minor GC",cause="Metadata GC Threshold",} 1.0
+jvm_gc_pause_seconds_sum{action="end of minor GC",cause="Metadata GC Threshold",} 0.071
+jvm_gc_pause_seconds_count{action="end of minor GC",cause="G1 Evacuation Pause",} 6.0
+jvm_gc_pause_seconds_sum{action="end of minor GC",cause="G1 Evacuation Pause",} 0.551
+# HELP jvm_gc_pause_seconds_max Time spent in GC pause
+# TYPE jvm_gc_pause_seconds_max gauge
+jvm_gc_pause_seconds_max{action="end of minor GC",cause="Metadata GC Threshold",} 0.071
+jvm_gc_pause_seconds_max{action="end of minor GC",cause="G1 Evacuation Pause",} 0.136
+# HELP system_cpu_usage The "recent cpu usage" for the whole system
+# TYPE system_cpu_usage gauge
+system_cpu_usage 0.4069206655413552
+# HELP jvm_buffer_total_capacity_bytes An estimate of the total capacity of the buffers in this pool
+# TYPE jvm_buffer_total_capacity_bytes gauge
+jvm_buffer_total_capacity_bytes{id="mapped",} 0.0
+jvm_buffer_total_capacity_bytes{id="direct",} 24576.0
+# HELP zipkin_reporter_spans_dropped_total Spans dropped (failed to report)
+# TYPE zipkin_reporter_spans_dropped_total counter
+zipkin_reporter_spans_dropped_total 4.0
+# HELP zipkin_reporter_spans_bytes_total Total bytes of encoded spans reported
+# TYPE zipkin_reporter_spans_bytes_total counter
+zipkin_reporter_spans_bytes_total 1681.0
+# HELP tomcat_sessions_active_current_sessions  
+# TYPE tomcat_sessions_active_current_sessions gauge
+tomcat_sessions_active_current_sessions 0.0
+# HELP jvm_classes_loaded_classes The number of classes that are currently loaded in the Java virtual machine
+# TYPE jvm_classes_loaded_classes gauge
+jvm_classes_loaded_classes 13714.0
+# HELP process_files_open_files The open file descriptor count
+# TYPE process_files_open_files gauge
+process_files_open_files 17.0
+# HELP resilience4j_circuitbreaker_slow_call_rate The slow call of the circuit breaker
+# TYPE resilience4j_circuitbreaker_slow_call_rate gauge
+resilience4j_circuitbreaker_slow_call_rate{name="proxyService",} -1.0
+# HELP system_cpu_count The number of processors available to the Java virtual machine
+# TYPE system_cpu_count gauge
+system_cpu_count 8.0
+# HELP jvm_threads_daemon_threads The current number of live daemon threads
+# TYPE jvm_threads_daemon_threads gauge
+jvm_threads_daemon_threads 21.0
+# HELP zipkin_reporter_messages_total Messages reported (or attempted to be reported)
+# TYPE zipkin_reporter_messages_total counter
+zipkin_reporter_messages_total 2.0
+# HELP zipkin_reporter_messages_dropped_total  
+# TYPE zipkin_reporter_messages_dropped_total counter
+zipkin_reporter_messages_dropped_total{cause="ResourceAccessException",} 2.0
+# HELP zipkin_reporter_messages_bytes_total Total bytes of messages reported
+# TYPE zipkin_reporter_messages_bytes_total counter
+zipkin_reporter_messages_bytes_total 1368.0
+# HELP http_server_requests_seconds  
+# TYPE http_server_requests_seconds summary
+http_server_requests_seconds_count{exception="None",method="GET",outcome="SUCCESS",status="200",uri="/actuator/metrics",} 1.0
+http_server_requests_seconds_sum{exception="None",method="GET",outcome="SUCCESS",status="200",uri="/actuator/metrics",} 1.339804427
+http_server_requests_seconds_count{exception="None",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",} 1.0
+http_server_requests_seconds_sum{exception="None",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",} 0.053689381
+# HELP http_server_requests_seconds_max  
+# TYPE http_server_requests_seconds_max gauge
+http_server_requests_seconds_max{exception="None",method="GET",outcome="SUCCESS",status="200",uri="/actuator/metrics",} 1.339804427
+http_server_requests_seconds_max{exception="None",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",} 0.053689381
+# HELP resilience4j_circuitbreaker_slow_calls The number of slow successful which were slower than a certain threshold
+# TYPE resilience4j_circuitbreaker_slow_calls gauge
+resilience4j_circuitbreaker_slow_calls{kind="successful",name="proxyService",} 0.0
+resilience4j_circuitbreaker_slow_calls{kind="failed",name="proxyService",} 0.0
+# HELP jvm_classes_unloaded_classes_total The total number of classes unloaded since the Java virtual machine has started execution
+# TYPE jvm_classes_unloaded_classes_total counter
+jvm_classes_unloaded_classes_total 0.0
+# HELP process_files_max_files The maximum file descriptor count
+# TYPE process_files_max_files gauge
+process_files_max_files 1048576.0
+# HELP resilience4j_circuitbreaker_calls_seconds Total number of successful calls
+# TYPE resilience4j_circuitbreaker_calls_seconds summary
+resilience4j_circuitbreaker_calls_seconds_count{kind="successful",name="proxyService",} 0.0
+resilience4j_circuitbreaker_calls_seconds_sum{kind="successful",name="proxyService",} 0.0
+resilience4j_circuitbreaker_calls_seconds_count{kind="failed",name="proxyService",} 0.0
+resilience4j_circuitbreaker_calls_seconds_sum{kind="failed",name="proxyService",} 0.0
+resilience4j_circuitbreaker_calls_seconds_count{kind="ignored",name="proxyService",} 0.0
+resilience4j_circuitbreaker_calls_seconds_sum{kind="ignored",name="proxyService",} 0.0
+# HELP resilience4j_circuitbreaker_calls_seconds_max Total number of successful calls
+# TYPE resilience4j_circuitbreaker_calls_seconds_max gauge
+resilience4j_circuitbreaker_calls_seconds_max{kind="successful",name="proxyService",} 0.0
+resilience4j_circuitbreaker_calls_seconds_max{kind="failed",name="proxyService",} 0.0
+resilience4j_circuitbreaker_calls_seconds_max{kind="ignored",name="proxyService",} 0.0
+# HELP zipkin_reporter_spans_total Spans reported
+# TYPE zipkin_reporter_spans_total counter
+zipkin_reporter_spans_total 5.0
+# HELP zipkin_reporter_queue_bytes Total size of all encoded spans queued for reporting
+# TYPE zipkin_reporter_queue_bytes gauge
+zipkin_reporter_queue_bytes 0.0
+# HELP tomcat_sessions_expired_sessions_total  
+# TYPE tomcat_sessions_expired_sessions_total counter
+tomcat_sessions_expired_sessions_total 0.0
+# HELP tomcat_sessions_alive_max_seconds  
+# TYPE tomcat_sessions_alive_max_seconds gauge
+tomcat_sessions_alive_max_seconds 0.0
+# HELP process_uptime_seconds The uptime of the Java virtual machine
+# TYPE process_uptime_seconds gauge
+process_uptime_seconds 224.402
+# HELP tomcat_sessions_active_max_sessions  
+# TYPE tomcat_sessions_active_max_sessions gauge
+tomcat_sessions_active_max_sessions 0.0
+# HELP process_cpu_usage The "recent cpu usage" for the Java Virtual Machine process
+# TYPE process_cpu_usage gauge
+process_cpu_usage 5.625879043600563E-4
+# HELP jvm_gc_memory_promoted_bytes_total Count of positive increases in the size of the old generation memory pool before GC to after GC
+# TYPE jvm_gc_memory_promoted_bytes_total counter
+jvm_gc_memory_promoted_bytes_total 1.7851088E7
+# HELP logback_events_total Number of error level events that made it to the logs
+# TYPE logback_events_total counter
+logback_events_total{level="warn",} 5.0
+logback_events_total{level="debug",} 79.0
+logback_events_total{level="error",} 0.0
+logback_events_total{level="trace",} 0.0
+logback_events_total{level="info",} 60.0
+# HELP tomcat_sessions_created_sessions_total  
+# TYPE tomcat_sessions_created_sessions_total counter
+tomcat_sessions_created_sessions_total 0.0
+# HELP jvm_threads_live_threads The current number of live threads including both daemon and non-daemon threads
+# TYPE jvm_threads_live_threads gauge
+jvm_threads_live_threads 25.0
+# HELP jvm_threads_states_threads The current number of threads having NEW state
+# TYPE jvm_threads_states_threads gauge
+jvm_threads_states_threads{state="runnable",} 6.0
+jvm_threads_states_threads{state="blocked",} 0.0
+jvm_threads_states_threads{state="waiting",} 8.0
+jvm_threads_states_threads{state="timed-waiting",} 11.0
+jvm_threads_states_threads{state="new",} 0.0
+jvm_threads_states_threads{state="terminated",} 0.0
+# HELP tomcat_sessions_rejected_sessions_total  
+# TYPE tomcat_sessions_rejected_sessions_total counter
+tomcat_sessions_rejected_sessions_total 0.0
+# HELP process_start_time_seconds Start time of the process since unix epoch.
+# TYPE process_start_time_seconds gauge
+process_start_time_seconds 1.64088634006E9
+# HELP resilience4j_circuitbreaker_buffered_calls The number of buffered failed calls stored in the ring buffer
+# TYPE resilience4j_circuitbreaker_buffered_calls gauge
+resilience4j_circuitbreaker_buffered_calls{kind="successful",name="proxyService",} 0.0
+resilience4j_circuitbreaker_buffered_calls{kind="failed",name="proxyService",} 0.0
+# HELP jvm_memory_max_bytes The maximum amount of memory in bytes that can be used for memory management
+# TYPE jvm_memory_max_bytes gauge
+jvm_memory_max_bytes{area="nonheap",id="CodeHeap 'profiled nmethods'",} 1.22908672E8
+jvm_memory_max_bytes{area="heap",id="G1 Survivor Space",} -1.0
+jvm_memory_max_bytes{area="heap",id="G1 Old Gen",} 5.182062592E9
+jvm_memory_max_bytes{area="nonheap",id="Metaspace",} -1.0
+jvm_memory_max_bytes{area="nonheap",id="CodeHeap 'non-nmethods'",} 5836800.0
+jvm_memory_max_bytes{area="heap",id="G1 Eden Space",} -1.0
+jvm_memory_max_bytes{area="nonheap",id="Compressed Class Space",} 1.073741824E9
+jvm_memory_max_bytes{area="nonheap",id="CodeHeap 'non-profiled nmethods'",} 1.22912768E8
+# HELP jvm_memory_committed_bytes The amount of memory in bytes that is committed for the Java virtual machine to use
+# TYPE jvm_memory_committed_bytes gauge
+jvm_memory_committed_bytes{area="nonheap",id="CodeHeap 'profiled nmethods'",} 1.6646144E7
+jvm_memory_committed_bytes{area="heap",id="G1 Survivor Space",} 2.4117248E7
+jvm_memory_committed_bytes{area="heap",id="G1 Old Gen",} 1.7301504E8
+jvm_memory_committed_bytes{area="nonheap",id="Metaspace",} 7.6857344E7
+jvm_memory_committed_bytes{area="nonheap",id="CodeHeap 'non-nmethods'",} 2555904.0
+jvm_memory_committed_bytes{area="heap",id="G1 Eden Space",} 2.71581184E8
+jvm_memory_committed_bytes{area="nonheap",id="Compressed Class Space",} 1.0354688E7
+jvm_memory_committed_bytes{area="nonheap",id="CodeHeap 'non-profiled nmethods'",} 6619136.0
+# HELP jvm_memory_used_bytes The amount of used memory
+# TYPE jvm_memory_used_bytes gauge
+jvm_memory_used_bytes{area="nonheap",id="CodeHeap 'profiled nmethods'",} 1.6585088E7
+jvm_memory_used_bytes{area="heap",id="G1 Survivor Space",} 2.4117248E7
+jvm_memory_used_bytes{area="heap",id="G1 Old Gen",} 2.0524392E7
+jvm_memory_used_bytes{area="nonheap",id="Metaspace",} 7.4384552E7
+jvm_memory_used_bytes{area="nonheap",id="CodeHeap 'non-nmethods'",} 1261696.0
+jvm_memory_used_bytes{area="heap",id="G1 Eden Space",} 2.5165824E7
+jvm_memory_used_bytes{area="nonheap",id="Compressed Class Space",} 9365664.0
+jvm_memory_used_bytes{area="nonheap",id="CodeHeap 'non-profiled nmethods'",} 6604416.0
+# HELP system_load_average_1m The sum of the number of runnable entities queued to available processors and the number of runnable entities running on the available processors averaged over a period of time
+# TYPE system_load_average_1m gauge
+system_load_average_1m 8.68
+# HELP resilience4j_circuitbreaker_state The states of the circuit breaker
+# TYPE resilience4j_circuitbreaker_state gauge
+resilience4j_circuitbreaker_state{name="proxyService",state="forced_open",} 0.0
+resilience4j_circuitbreaker_state{name="proxyService",state="closed",} 1.0
+resilience4j_circuitbreaker_state{name="proxyService",state="disabled",} 0.0
+resilience4j_circuitbreaker_state{name="proxyService",state="open",} 0.0
+resilience4j_circuitbreaker_state{name="proxyService",state="half_open",} 0.0
+resilience4j_circuitbreaker_state{name="proxyService",state="metrics_only",} 0.0
+# HELP jvm_buffer_memory_used_bytes An estimate of the memory that the Java virtual machine is using for this buffer pool
+# TYPE jvm_buffer_memory_used_bytes gauge
+jvm_buffer_memory_used_bytes{id="mapped",} 0.0
+jvm_buffer_memory_used_bytes{id="direct",} 24576.0
+# HELP resilience4j_circuitbreaker_failure_rate The failure rate of the circuit breaker
+# TYPE resilience4j_circuitbreaker_failure_rate gauge
+resilience4j_circuitbreaker_failure_rate{name="proxyService",} -1.0
+# HELP zipkin_reporter_queue_spans Spans queued for reporting
+# TYPE zipkin_reporter_queue_spans gauge
+zipkin_reporter_queue_spans 0.0
+# HELP jvm_gc_memory_allocated_bytes_total Incremented for an increase in the size of the (young) heap memory pool after one GC to before the next
+# TYPE jvm_gc_memory_allocated_bytes_total counter
+jvm_gc_memory_allocated_bytes_total 1.402994688E9
+# HELP jvm_buffer_count_buffers An estimate of the number of buffers in the pool
+# TYPE jvm_buffer_count_buffers gauge
+jvm_buffer_count_buffers{id="mapped",} 0.0
+jvm_buffer_count_buffers{id="direct",} 3.0
+# HELP jvm_threads_peak_threads The peak live thread count since the Java virtual machine started or peak was reset
+# TYPE jvm_threads_peak_threads gauge
+jvm_threads_peak_threads 25.0
+# HELP jvm_gc_max_data_size_bytes Max size of long-lived heap memory pool
+# TYPE jvm_gc_max_data_size_bytes gauge
+jvm_gc_max_data_size_bytes 5.182062592E9
 ```
 
 #### Check All Services Health

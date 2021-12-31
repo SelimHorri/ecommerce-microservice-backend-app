@@ -1,6 +1,9 @@
 
 server:
   port: 8080
+  error:
+    whitelabel:
+      enabled: false
 
 management:
   endpoints:

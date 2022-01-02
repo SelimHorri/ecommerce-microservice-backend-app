@@ -13,9 +13,6 @@ spring:
   profiles:
     active:
     - dev
-  jackson:
-    serialization:
-      indent-output: true
   cloud:
     gateway:
       default-filters:

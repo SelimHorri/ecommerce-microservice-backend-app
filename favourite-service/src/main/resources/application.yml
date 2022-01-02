@@ -13,10 +13,6 @@ spring:
   profiles:
     active:
     - dev
-  jackson:
-    serialization:
-      indent-output: true
-
 
 resilience4j:
   circuitbreaker:
